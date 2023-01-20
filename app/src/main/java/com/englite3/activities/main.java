@@ -10,19 +10,32 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.englite3.R;
 import com.englite3.adapters.DatabaseNameAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class main extends AppCompatActivity {
+public class main extends AppCompatActivity implements View.OnClickListener {
     private long mExitTime;
     private DatabaseNameAdapter adapter;
     private ListView listView;
+    private FloatingActionButton circleButton;
+    private TextView textview;
+    private Intent intent;
+
+    private void initview(){
+        listView = findViewById(R.id.main_listview);
+        circleButton = findViewById(R.id.main_circlebutton);
+        textview = findViewById(R.id.main_textview);
+
+        circleButton.setOnClickListener(this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +50,11 @@ public class main extends AppCompatActivity {
         showDbName();
     }
 
-    private void initview(){
-
-    }
-
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         //判断用户是否点击了“返回键”
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             //与上次点击返回键时刻作差
-
             if ((System.currentTimeMillis() - mExitTime) > 2000) {
                 //大于2000ms则认为是误操作，使用Toast进行提示
                 Toast.makeText(this, "检测到返回操作,再操作一次退出程序", Toast.LENGTH_SHORT).show();
@@ -59,6 +67,19 @@ public class main extends AppCompatActivity {
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.main_circlebutton:
+                intent = new Intent(main.this, functions.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
+
     }
 
     public List<String> getDbName(String path) {
@@ -83,6 +104,7 @@ public class main extends AppCompatActivity {
         List<String> lst = getDbName("./database/");
         if(lst == null) {
             Log.w("nodb", "未检测到db文件");
+            textview.setText("无词库");
         }else {
             adapter = new DatabaseNameAdapter(this, lst);
             listView.setAdapter(adapter);
@@ -92,6 +114,7 @@ public class main extends AppCompatActivity {
 
                 }
             });
+            textview.setText("请选择词库");
         }
     }
 

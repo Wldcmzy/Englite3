@@ -6,12 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".activities.main">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="asdfasdf"
-        android:layout_marginTop="80dp">
+        android:orientation="vertical">
 
-    </TextView>
+        <TextView
+            android:id="@+id/main_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="">
+        </TextView>
 
+        <ListView
+            android:id="@+id/main_listview"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ListView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/main_circlebutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            app:borderWidth="0dp"
+            app:backgroundTint="#99ccff"
+            app:rippleColor="#33728dff"
+            app:elevation="8dp"
+            app:pressedTranslationZ="16dp"/>
+
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
