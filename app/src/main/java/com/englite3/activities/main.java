@@ -21,6 +21,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.englite3.Config;
+
 public class main extends AppCompatActivity implements View.OnClickListener {
     private long mExitTime;
     private DatabaseNameAdapter adapter;
@@ -28,6 +30,7 @@ public class main extends AppCompatActivity implements View.OnClickListener {
     private FloatingActionButton circleButton;
     private TextView textview;
     private Intent intent;
+
 
     private void initview(){
         listView = findViewById(R.id.main_listview);
@@ -57,7 +60,7 @@ public class main extends AppCompatActivity implements View.OnClickListener {
             //与上次点击返回键时刻作差
             if ((System.currentTimeMillis() - mExitTime) > 2000) {
                 //大于2000ms则认为是误操作，使用Toast进行提示
-                Toast.makeText(this, "检测到返回操作,再操作一次退出程序", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "两秒内连续两次返回退出软件", Toast.LENGTH_SHORT).show();
                 //并记录下本次点击“返回键”的时刻，以便下次进行判断
                 mExitTime = System.currentTimeMillis();
             } else {
@@ -86,22 +89,26 @@ public class main extends AppCompatActivity implements View.OnClickListener {
         File file=new File(path);
         File[] files=file.listFiles();
 
+
         if (files == null){
+            Log.e("dsaf", "files is null");
             return null;
         }
 
         List<String> s = new ArrayList<>();
         for(int i =0;i<files.length;i++){
             String x =files[i].getName();
-            if(x.endsWith(".db")) {
-                s.add(x);
-            }
+//            if(x.endsWith(".db")) {
+//                s.add(x);
+//            }
+            Log.w("","filename = " + x);
+            s.add(x);
         }
         return s;
     }
 
     public void showDbName(){
-        List<String> lst = getDbName("./database/");
+        List<String> lst = getDbName(Config.DbPath);
         if(lst == null) {
             Log.w("nodb", "未检测到db文件");
             textview.setText("无词库");

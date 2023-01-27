@@ -12,12 +12,33 @@
         android:orientation="vertical">
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="功能列表"
+            android:textAlignment="center"
+            android:layout_margin="10dp"
+            android:textSize="35dp"
+            ></TextView>
+
+        <TextView
             android:id="@+id/func_import_local"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="从本地导入词库"
             android:textAlignment="center"
-            android:layout_margin="30dp"
+            android:layout_margin="10dp"
+            android:textSize="20dp"
+            android:background="@color/teal_200"
+            android:padding="10dp"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/func_import_cloud"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="从云端导入词库"
+            android:textAlignment="center"
+            android:layout_margin="10dp"
             android:textSize="20dp"
             android:background="@color/teal_200"
             android:padding="10dp"
