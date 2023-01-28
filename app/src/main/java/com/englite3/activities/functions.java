@@ -19,7 +19,7 @@ import java.io.File;
 
 
 public class functions extends AppCompatActivity implements View.OnClickListener {
-    private TextView import_local, import_cloud;
+    private TextView import_local, import_cloud, cloud_setting;
     private Intent intent;
     private final int CODE_IMPORT_BY_FILE = 123;
     private final int CODE_IMPORT_BY_CLOUD = 321;
@@ -32,6 +32,9 @@ public class functions extends AppCompatActivity implements View.OnClickListener
 
         import_cloud = findViewById(R.id.func_import_cloud);
         import_cloud.setOnClickListener(this);
+
+        cloud_setting = findViewById(R.id.func_cloud_setting);
+        cloud_setting.setOnClickListener(this);
     }
 
     @Override
@@ -75,6 +78,10 @@ public class functions extends AppCompatActivity implements View.OnClickListener
                 break;
             case R.id.func_import_cloud:
                 intent = new Intent(functions.this, Cloud.class);
+                startActivity(intent);
+                break;
+            case R.id.func_cloud_setting:
+                intent = new Intent(functions.this, CloudSetting.class);
                 startActivity(intent);
                 break;
             default:

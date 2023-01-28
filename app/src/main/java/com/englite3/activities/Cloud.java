@@ -1,26 +1,26 @@
 package com.englite3.activities;
 
+import static com.englite3.logic.Os.getCloudAddr;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.englite3.R;
 import com.englite3.logic.Tcp;
+import com.englite3.utils.AddrInfo;
 
 public class Cloud extends AppCompatActivity implements View.OnClickListener{
     private Button query_db_list;
-    private EditText editHost, editPort;
     private Tcp tcp;
 
     private void init(){
         query_db_list = findViewById(R.id.query_db_list);
         query_db_list.setOnClickListener(this);
-
-        editHost = findViewById(R.id.edit_host);
-        editPort = findViewById(R.id.edit_port);
 
         tcp = new Tcp(Cloud.this);
 
@@ -38,9 +38,13 @@ public class Cloud extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.query_db_list:
-                String host = editHost.getText().toString();
-                String port = editPort.getText().toString();
-                tcp.query_db_list(host, port);
+                AddrInfo ai = getCloudAddr(this);
+                if(ai == null){
+                    Toast.makeText(this, "加载服务器信息失败", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    tcp.query_db_list(ai.getHost(), ai.getPort());
+                }
                 break;
             default:
                 break;

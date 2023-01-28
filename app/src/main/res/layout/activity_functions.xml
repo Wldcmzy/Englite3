@@ -44,6 +44,18 @@
             android:padding="10dp"
             ></TextView>
 
+        <TextView
+            android:id="@+id/func_cloud_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="更改云端配置"
+            android:textAlignment="center"
+            android:layout_margin="10dp"
+            android:textSize="20dp"
+            android:background="@color/custom_red_1"
+            android:padding="10dp"
+            ></TextView>
+
 
 
     </LinearLayout>
