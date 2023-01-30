@@ -113,7 +113,7 @@ public class main extends AppCompatActivity implements View.OnClickListener {
             Log.w("nodb", "未检测到db文件");
             textview.setText("无词库");
         }else {
-            adapter = new DatabaseNameAdapter(this, lst);
+            adapter = new DatabaseNameAdapter(this, R.layout.list_member,lst);
             listView.setAdapter(adapter);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override

@@ -3,10 +3,23 @@ import os
 
 dbpath = Path(__file__).parent.parent.parent/ "databases"
 
-def get_db_list() -> list[str]:
-    lst = os.listdir(dbpath)
-    lst = filter(lambda x: x.endswith('.db'), lst)
-    return list(lst)
+def get_db_list(descirption: bool = True) -> list[str]:
+    lst = []
+    all_files = os.listdir(dbpath)
+    db_files = list(filter(lambda x: x.endswith('.db'), all_files))
+    if descirption:
+        for dbname in db_files:
+            statement = '无描述'
+            statement_file = dbname + '.txt'
+            if statement_file in all_files:
+                with open(dbpath / statement_file, 'r', encoding='utf-8') as f:
+                    statement = f.read()
+            lst.append(f'{dbname}_{statement}')
+    else:
+        lst = db_files
+    return lst
+        
+    
 
 def get_db_bytes(filename: str) -> bytes:
     with open(dbpath / filename, 'rb') as f:

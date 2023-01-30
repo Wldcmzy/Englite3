@@ -23,3 +23,4 @@ def select_all(conn: sqlite3.Connection):
     c = conn.cursor()
     c.execute(f'select * from WORD')
     return c.fetchall()
+

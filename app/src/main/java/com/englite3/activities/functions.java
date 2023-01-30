@@ -52,8 +52,6 @@ public class functions extends AppCompatActivity implements View.OnClickListener
             switch (requestCode) {
                 case CODE_IMPORT_BY_FILE:
                     try {
-                        Uri uri = data.getData();
-                        File destFile = File.createTempFile("temp", ".tmp", getCacheDir());
 
                     } catch (Exception e) {
                         e.printStackTrace();
