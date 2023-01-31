@@ -7,11 +7,16 @@ from .utils.log import (
 )
 from .utils.sysApi import (
     dbpath,
+    usersdb,
     get_db_list,
 )
 from .utils.sqlApi import (
     opendb,
     select_all,
+
+    open_users_db,
+    identify,
+    set_user_last_login,
 )
 
 class Server:
@@ -41,9 +46,15 @@ class Server:
 
     @classmethod
     def Csend(cls, sk: socket.socket, data: str, mod: int, key: str = None) -> None:
+        x = data
         data = data.encode('utf-8')
         if mod == cls.AESMOD:
             pass
+        
+        while len(data) > 1024:
+            sk.send(data[ : 1024])
+            data = data[1024 : ]
+
         sk.send(data)
 
     @classmethod
@@ -78,17 +89,24 @@ class Server:
     def __task_operator(self, sk: socket.socket, addr: tuple[str, int]):
         aeskey = self.Crecv(sk, self.RSAMOD, self.buffersize)
         self.Csend(sk, str(random.randint(9999, 99999)), self.AESMOD)
+
         data = self.Crecv(sk, self.RSAMOD, self.buffersize)
         data = data.split('_')
         username = data[0]
         password = data[1]
-
-        re = 'sdfsdf'
-        # if random.randint(0, 1) == 0:
-        #     re = self.DENY
-        #     logger.warning("生成一个拒绝")
-        self.Csend(sk, re, self.AESMOD)
+        conn = open_users_db(usersdb)
+        if identify(conn, username, password) == False:
+            self.Csend(sk, self.DENY, self.AESMOD)
+            logger.info(f'{threading.current_thread().name} addr={addr} username={username} 身份验证失败, 线程结束')
+            sk.close()
+            return
+        else:
+            set_user_last_login(conn, username, addr)
+            self.Csend(sk,'something', self.AESMOD)
+            logger.info(f'{threading.current_thread().name} addr={addr} username={username} 身份验证成功')
     
+        conn.close()
+
         num = int(data[2])
         if num ==self.SAVE_DB or num == self.LOAD_DB:
             dbname = data[3]
@@ -120,7 +138,7 @@ class Server:
         try:
             lst = get_db_list(descirption=False)
             if dbname not in lst:
-                self.Csend(sk, self.NODB, self.AESMOD)
+                self.Csend(sk, self.NODB + self.SEP, self.AESMOD)
                 logger.info(f'database {dbname} not exist.')
             else:
                 conn = opendb(dbpath / dbname)

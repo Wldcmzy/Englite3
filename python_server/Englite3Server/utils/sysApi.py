@@ -2,6 +2,8 @@ from pathlib import Path
 import os
 
 dbpath = Path(__file__).parent.parent.parent/ "databases"
+userpath = Path(__file__).parent.parent.parent/ "users"
+usersdb = Path(__file__).parent.parent.parent/ "users" / "users.db"
 
 def get_db_list(descirption: bool = True) -> list[str]:
     lst = []

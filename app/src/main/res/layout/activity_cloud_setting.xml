@@ -59,6 +59,8 @@
                 android:text="清空输入"
                 android:layout_gravity="left"
                 android:layout_margin="5dp"
+                android:background="@color/bt1"
+                android:layout_weight="1"
                 />
 
             <Button
@@ -68,6 +70,8 @@
                 android:text="查看配置"
                 android:layout_gravity="left"
                 android:layout_margin="5dp"
+                android:background="@color/bt1"
+                android:layout_weight="1"
                 />
 
             <Button
@@ -77,6 +81,8 @@
                 android:text="保存配置"
                 android:layout_gravity="right"
                 android:layout_margin="5dp"
+                android:background="@color/bt1"
+                android:layout_weight="1"
                 />
 
         </LinearLayout>

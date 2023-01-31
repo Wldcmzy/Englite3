@@ -3,6 +3,7 @@ package com.englite3.logic;
 import android.content.Context;
 import android.os.Looper;
 import android.os.SystemClock;
+import android.provider.Telephony;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -22,7 +23,11 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
 import com.englite3.Config;
+import com.englite3.database.DbOperator;
 import com.englite3.logic.Rsa;
+import com.englite3.utils.AddrInfo;
+import com.englite3.utils.UserInfo;
+import com.englite3.utils.Word;
 
 public class Tcp {
     public static final String transOK = "传输完成";
@@ -43,21 +48,29 @@ public class Tcp {
     private int timeoutLim = 2000;
     private String pubkey;
     private String aeskey;
+    private AddrInfo ai;
+    private UserInfo ui;
+    private Context context;
 
     public static List<String> recvs = new ArrayList<String>();
 
 
-    public Tcp(){
+    public Tcp(Context context, UserInfo ui){
         firstMod = nextMod = NoneMod;
+        this.ui = ui;
+        this.context = context;
     }
-    public Tcp(boolean ifaes, String pubkey){
-        if(ifaes){
+    public Tcp(Context context, AddrInfo ai, UserInfo ui){
+        if(ai.isIfaes()){
             firstMod = RsaMod;
             nextMod = AesMod;
         }else{
             firstMod = nextMod = NoneMod;
         }
-        this.pubkey = pubkey;
+        this.pubkey = ai.getPubkey();
+        this.ai = ai;
+        this.ui = ui;
+        this.context = context;
     }
 
     private class ServerDenyException extends Exception {
@@ -65,6 +78,15 @@ public class Tcp {
             super();
         }
         public ServerDenyException(String s) {
+            super(s);
+        }
+    }
+
+    private class DBException extends Exception {
+        public DBException() {
+            super();
+        }
+        public DBException(String s) {
             super(s);
         }
     }
@@ -133,14 +155,14 @@ public class Tcp {
         return rev;
     }
 
-    public List<String> query_db_list(String host, String port, String username, String password){
+    public List<String> query_db_list(){
         Thread t = new Thread() {
             @Override
             public void run() {
                 List<String> revlst = new ArrayList<String>();
 //                Looper.prepare();
                 try {
-                    Socket client = newClient(host, port);
+                    Socket client = newClient(ai.getHost(), ai.getPort());
                     if(client == null){
                         throw new ConnectException("未能成功链接服务器");
                     }
@@ -154,7 +176,7 @@ public class Tcp {
 
                     rev = recv(client, nextMod);
 
-                    String login_and_query_msg = username + "_" + password + "_" + Integer.toString(Config.QUERY_DB_LIST);
+                    String login_and_query_msg = ui.getUsername() + "_" + ui.getPassword() + "_" + Integer.toString(Config.QUERY_DB_LIST);
                     send(client, login_and_query_msg, nextMod);
 
                     rev = recv(client, nextMod);
@@ -233,14 +255,14 @@ public class Tcp {
     }
 
 
-    public String download_db(FileOutputStream fos, String dbname, String host, String port, String username, String password) {
+    public String download_db(String dbname) {
         Thread t = new Thread() {
             @Override
             public void run() {
                 List<String> revlst = new ArrayList<String>();
 //                Looper.prepare();
                 try {
-                    Socket client = newClient(host, port);
+                    Socket client = newClient(ai.getHost(), ai.getPort());
                     if (client == null) {
                         throw new ConnectException("未能成功链接服务器");
                     }
@@ -254,34 +276,48 @@ public class Tcp {
 
                     rev = recv(client, nextMod);
 
-                    String login_and_query_msg = username + "_" + password + "_" + Integer.toString(Config.DOWNLOAD_DB) + "_" + dbname;
+                    String login_and_query_msg = ui.getUsername() + "_" + ui.getPassword() + "_" + Integer.toString(Config.DOWNLOAD_DB) + "_" + dbname;
                     send(client, login_and_query_msg, nextMod);
 
                     rev = recv(client, nextMod);
                     if (rev.equals(Config.DENY)) {
                         throw new ServerDenyException("未通过身份验证,服务器拒绝服务");
                     } else {
+                        String remain = "";
+                        DbOperator dop = new DbOperator(context, Config.Dbprefix + dbname);
+                        dop.reCreateWordTable();
                         while (true) {
                             rev = recv(client, nextMod);
-                            Log.e("safe", rev);
                             if (rev.substring(rev.length() - Config.END.length(), rev.length()).equals(Config.END)) {
                                 rev = rev.substring(0, rev.length() - Config.END.length());
                                 exit = true;
                                 Log.d("safe", "can break");
                             }
+                            boolean noendTag = false;
                             if (!(exit && rev.equals(""))) {
                                 if (rev.substring(rev.length() - Config.END.length(), rev.length()).equals(Config.SEP)) {
                                     rev = rev.substring(0, rev.length() - Config.SEP.length());
+                                    noendTag = false;
+                                }else{
+                                    noendTag = true;
+                                }
+                                if(remain.length() > 0){
+                                    rev = remain + rev;
+                                    remain = "";
                                 }
 
                                 String[] revs = rev.split(Config.SEP);
                                 for (int i = 0; i < revs.length; i++) {
-                                    if (!revs[i].equals("")) {
-                                        ;
+                                    if (revs[i].length() > 0) {
+                                        if(noendTag && i == revs.length - 1){
+                                            remain = revs[i];
+                                        }else{
+                                            String[] wordinfo = revs[i].split(Config.WORDSEP);
+                                            long z = dop.addOneWord(new Word(wordinfo));
+                                        }
                                     }
                                 }
                             }
-                            Log.e("safe", "OOOOOKKKKKK");
                             if (exit) {
 //                            Toast.makeText(context, "传输完成", Toast.LENGTH_SHORT).show();
                                 revlst.add(0, Tcp.transOK);
@@ -302,7 +338,7 @@ public class Tcp {
                 } catch (Exception e) {
 //                    Toast.makeText(context, "发生错误", Toast.LENGTH_SHORT).show();
                     revlst.add(0, Tcp.unknowERROR);
-                    Log.e("at TCP_query_db_lst", e.getMessage());
+                    Log.e("at TCP_downloadDB", e.getMessage());
                 }
 //                Looper.loop();
                 Tcp.setRecvs(revlst);
@@ -311,7 +347,7 @@ public class Tcp {
         t.start();
         int x = 0;
         while (t.isAlive()) {
-            Log.d("at Tcp query_db_lst", "task is Alive........");
+            Log.d("at Tcp downloadDB", "task is Alive........");
             SystemClock.sleep(200);
             if (x > 5000) {
                 List<String> ee = new ArrayList<String>();

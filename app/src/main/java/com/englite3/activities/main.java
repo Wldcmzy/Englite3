@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.englite3.Config;
+import com.englite3.logic.Os;
 
 public class main extends AppCompatActivity implements View.OnClickListener {
     private long mExitTime;
@@ -85,32 +86,11 @@ public class main extends AppCompatActivity implements View.OnClickListener {
 
     }
 
-    public List<String> getDbName(String path) {
-        File file=new File(path);
-        File[] files=file.listFiles();
-
-
-        if (files == null){
-            Log.e("dsaf", "files is null");
-            return null;
-        }
-
-        List<String> s = new ArrayList<>();
-        for(int i =0;i<files.length;i++){
-            String x =files[i].getName();
-//            if(x.endsWith(".db")) {
-//                s.add(x);
-//            }
-            Log.w("","filename = " + x);
-            s.add(x);
-        }
-        return s;
-    }
 
     public void showDbName(){
-        List<String> lst = getDbName(Config.DbPath);
-        if(lst == null) {
-            Log.w("nodb", "未检测到db文件");
+        List<String> lst = Os.getDbName(this);
+        if(lst == null || lst.size() <= 0) {
+            Log.w("at main activity", "未检测到db文件");
             textview.setText("无词库");
         }else {
             adapter = new DatabaseNameAdapter(this, R.layout.list_member,lst);

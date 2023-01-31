@@ -1,0 +1,13 @@
+2023-01-31 10:29:42,879 <INFO>: 服务器已开启, ip:0.0.0.0 port:37202
+2023-01-31 10:30:40,839 <INFO>: 客户端: ('192.168.1.103', 41124) 链接, 分派线程 Englite3TCP_1
+2023-01-31 10:30:40,848 <INFO>: Englite3TCP_1 addr=('192.168.1.103', 41124) query database list.
+2023-01-31 10:30:40,850 <INFO>: 线程Englite3TCP_1socket已关闭. 且线程结束
+2023-01-31 10:31:00,273 <INFO>: 客户端: ('192.168.1.103', 41128) 链接, 分派线程 Englite3TCP_2
+2023-01-31 10:31:00,277 <INFO>: Englite3TCP_2 addr=('192.168.1.103', 41128) wanna download database, name = civi.db
+2023-01-31 10:59:30,319 <INFO>: 客户端: ('192.168.1.103', 42084) 链接, 分派线程 Englite3TCP_3
+2023-01-31 10:59:30,324 <INFO>: Englite3TCP_3 addr=('192.168.1.103', 42084) query database list.
+2023-01-31 10:59:30,326 <INFO>: 线程Englite3TCP_3socket已关闭. 且线程结束
+2023-01-31 10:59:32,468 <INFO>: 客户端: ('192.168.1.103', 42108) 链接, 分派线程 Englite3TCP_4
+2023-01-31 10:59:32,471 <INFO>: Englite3TCP_4 addr=('192.168.1.103', 42108) wanna download database, name = civi.db
+2023-01-31 10:59:34,998 <INFO>: 客户端: ('192.168.1.103', 42110) 链接, 分派线程 Englite3TCP_5
+2023-01-31 10:59:35,001 <INFO>: Englite3TCP_5 addr=('192.168.1.103', 42110) wanna download database, name = civi.db

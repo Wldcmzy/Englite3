@@ -8,4 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="custom_red_1">#ff8899</color>
+    <color name="no">#dd6644</color>
+    <color name="yes">#44aa77</color>
+    <color name="bt1">#dd8888</color>
+    <color name="green1">#55aa55</color>
+    <color name="blue1">#5555aa</color>
+    <color name="red1">#aa5555</color>
 </resources>

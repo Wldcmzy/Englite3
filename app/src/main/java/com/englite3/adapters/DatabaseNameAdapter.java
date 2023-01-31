@@ -38,9 +38,13 @@ public class DatabaseNameAdapter extends ArrayAdapter<String> {
             holder = (Holder) convertView.getTag();
         }
         String db_list_item = getItem(position);
+
         String[] item_data = db_list_item.split("_");
         holder.name.setText(item_data[0]);
-        holder.statement.setText(item_data[1]);
+        if(item_data.length >= 2) {
+            holder.statement.setText(item_data[1]);
+        }
+
         return convertView;
     }
 }

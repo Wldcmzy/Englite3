@@ -1,0 +1,13 @@
+2023-01-31 20:36:08,070 <INFO>: 服务器已开启, ip:0.0.0.0 port:37202
+2023-01-31 20:36:08,782 <INFO>: 客户端: ('192.168.1.103', 56902) 链接, 分派线程 Englite3TCP_1
+2023-01-31 20:36:08,835 <INFO>: Englite3TCP_1 addr=('192.168.1.103', 56902) username=whis 身份验证成功
+2023-01-31 20:36:08,836 <INFO>: Englite3TCP_1 addr=('192.168.1.103', 56902) query database list.
+2023-01-31 20:36:08,837 <INFO>: 线程Englite3TCP_1socket已关闭. 且线程结束
+2023-01-31 20:36:14,798 <INFO>: 客户端: ('192.168.1.103', 56906) 链接, 分派线程 Englite3TCP_2
+2023-01-31 20:36:14,802 <INFO>: Englite3TCP_2 addr=('192.168.1.103', 56906) username=whis 身份验证成功
+2023-01-31 20:36:14,803 <INFO>: Englite3TCP_2 addr=('192.168.1.103', 56906) wanna download database, name = civi.db
+2023-01-31 20:36:14,829 <WARNING>: split order_#>_<
+2023-01-31 20:36:14,830 <WARNING>: split state_#>_<
+2023-01-31 20:36:14,831 <WARNING>: split quarter_#>
+2023-01-31 20:36:14,842 <WARNING>: split square_#>_
+2023-01-31 20:36:14,845 <WARNING>: split service_#>
