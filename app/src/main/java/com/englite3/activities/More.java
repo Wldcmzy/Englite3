@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 
 import android.content.Intent;
-import android.net.Uri;
 
 import android.os.Bundle;
 
@@ -15,10 +14,8 @@ import android.widget.TextView;
 
 import com.englite3.R;
 
-import java.io.File;
 
-
-public class functions extends AppCompatActivity implements View.OnClickListener {
+public class More extends AppCompatActivity implements View.OnClickListener {
     private TextView import_local, import_cloud, cloud_setting, cloud_userinfo_setting;
     private Intent intent;
     private final int CODE_IMPORT_BY_FILE = 123;
@@ -43,7 +40,7 @@ public class functions extends AppCompatActivity implements View.OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_functions);
+        setContentView(R.layout.activity_more);
         initview();
     }
 
@@ -78,15 +75,15 @@ public class functions extends AppCompatActivity implements View.OnClickListener
                 startActivityForResult(intent, 123);
                 break;
             case R.id.func_import_cloud:
-                intent = new Intent(functions.this, Cloud.class);
+                intent = new Intent(More.this, CloudQuery.class);
                 startActivity(intent);
                 break;
             case R.id.func_cloud_setting:
-                intent = new Intent(functions.this, CloudSetting.class);
+                intent = new Intent(More.this, CloudSettingRemote.class);
                 startActivity(intent);
                 break;
             case R.id.func_cloud_userinfo_setting:
-                intent = new Intent(functions.this, CloudUserInfoSetting.class);
+                intent = new Intent(More.this, CloudSettingUserInfo.class);
                 startActivity(intent);
                 break;
             default:

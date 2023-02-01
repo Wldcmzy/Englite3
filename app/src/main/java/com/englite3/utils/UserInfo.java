@@ -1,5 +1,9 @@
 package com.englite3.utils;
 
+
+/*
+用于记录用户信息
+ */
 public class UserInfo {
     private String username, password;
 

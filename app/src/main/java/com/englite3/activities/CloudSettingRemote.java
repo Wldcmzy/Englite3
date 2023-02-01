@@ -1,9 +1,7 @@
 package com.englite3.activities;
 
-import static com.englite3.logic.Os.getCloudAddr;
-import static com.englite3.logic.Os.getUserInfo;
-import static com.englite3.logic.Os.saveCloudAddr;
-import static com.englite3.logic.Os.saveUserInfo;
+import static com.englite3.logic.ApiFunctions.getCloudAddr;
+import static com.englite3.logic.ApiFunctions.saveCloudAddr;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,30 +15,32 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.englite3.R;
+
 import com.englite3.utils.AddrInfo;
-import com.englite3.utils.UserInfo;
 
-public class CloudUserInfoSetting extends AppCompatActivity implements View.OnClickListener{
-
-    private EditText edit_username, edit_password;
-    private Button show_info, clear_info, save_info;
+public class CloudSettingRemote extends AppCompatActivity implements View.OnClickListener{
+    private EditText edit_host, edit_port, edit_pubkey;
+    private Button show_addr, clear_addr, save_addr;
+    private CheckBox use_aes;
 
     private void initView(){
-        edit_username = findViewById(R.id.edit_username);
-        edit_password = findViewById(R.id.edit_password);
+        edit_host = findViewById(R.id.edit_host);
+        edit_port = findViewById(R.id.edit_port);
+        edit_pubkey = findViewById(R.id.edit_pubkey);
+        use_aes = findViewById(R.id.use_aes);
 
-        show_info = findViewById(R.id.show_userinfo);
-        show_info.setOnClickListener(this);
-        clear_info = findViewById(R.id.clear_userinfo);
-        clear_info.setOnClickListener(this);
-        save_info = findViewById(R.id.save_userinfo);
-        save_info.setOnClickListener(this);
+        show_addr = findViewById(R.id.show_addr);
+        show_addr.setOnClickListener(this);
+        clear_addr = findViewById(R.id.clear_addr);
+        clear_addr.setOnClickListener(this);
+        save_addr = findViewById(R.id.save_addr);
+        save_addr.setOnClickListener(this);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cloud_user_info_setting);
+        setContentView(R.layout.activity_cloud_setting_remote);
         initView();
     }
 
@@ -50,16 +50,16 @@ public class CloudUserInfoSetting extends AppCompatActivity implements View.OnCl
     }
 
     private void confirm(int id){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(CloudSettingRemote.this);
         String query = "";
         switch (id){
-            case R.id.clear_userinfo:
+            case R.id.clear_addr:
                 query = "你确定要清空你输入的信息吗?";
                 break;
-            case R.id.show_userinfo:
+            case R.id.show_addr:
                 query="进行这个操作, 你输入框的内容将被你的默认配置覆盖, 你确定这么做吗?";
                 break;
-            case R.id.save_userinfo:
+            case R.id.save_addr:
                 query = "你确定要保存当前输入框内容为默认配置吗?";
                 break;
             default:
@@ -72,14 +72,15 @@ public class CloudUserInfoSetting extends AppCompatActivity implements View.OnCl
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 switch(id){
-                                    case R.id.clear_userinfo:
-                                        edit_username.setText("");
-                                        edit_password.setText("");
+                                    case R.id.clear_addr:
+                                        edit_host.setText("");
+                                        edit_port.setText("");
+                                        edit_pubkey.setText("");;
                                         break;
-                                    case R.id.show_userinfo:
+                                    case R.id.show_addr:
                                         show();
                                         break;
-                                    case R.id.save_userinfo:
+                                    case R.id.save_addr:
                                         save();
                                         break;
                                     default:
@@ -99,21 +100,26 @@ public class CloudUserInfoSetting extends AppCompatActivity implements View.OnCl
     }
 
     private void save(){
-        String username = edit_username.getText().toString();
-        String password = edit_password.getText().toString();
-        saveUserInfo(this,username, password);
+        boolean aes = use_aes.isChecked();
+        String host = edit_host.getText().toString();
+        String port = edit_port.getText().toString();
+        String pubkey = edit_pubkey.getText().toString();
+        saveCloudAddr(this,host,port,aes,pubkey);
     }
 
 
     private void show() {
 
         try {
-            UserInfo ui = getUserInfo(this);
-            edit_username.setText(ui.getUsername());
-            edit_password.setText(ui.getPassword());
+            AddrInfo ai = getCloudAddr(this);
+
+            edit_host.setText(ai.getHost());
+            edit_port.setText(ai.getPort());
+            use_aes.setChecked(ai.isIfaes());
+            edit_pubkey.setText(ai.getPubkey());
 
         }catch (Exception e){
-            Log.e("at CloudUserinfosetting", e.getMessage());
+            Log.e("sdf", e.getMessage());
         }
     }
 }

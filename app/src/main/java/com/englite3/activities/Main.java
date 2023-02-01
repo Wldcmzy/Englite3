@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -17,14 +16,11 @@ import com.englite3.R;
 import com.englite3.adapters.DatabaseNameAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
-import com.englite3.Config;
-import com.englite3.logic.Os;
+import com.englite3.logic.ApiFunctions;
 
-public class main extends AppCompatActivity implements View.OnClickListener {
+public class Main extends AppCompatActivity implements View.OnClickListener {
     private long mExitTime;
     private DatabaseNameAdapter adapter;
     private ListView listView;
@@ -77,7 +73,7 @@ public class main extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.main_circlebutton:
-                intent = new Intent(main.this, functions.class);
+                intent = new Intent(Main.this, More.class);
                 startActivity(intent);
                 break;
             default:
@@ -88,7 +84,7 @@ public class main extends AppCompatActivity implements View.OnClickListener {
 
 
     public void showDbName(){
-        List<String> lst = Os.getDbName(this);
+        List<String> lst = ApiFunctions.getDbName(this);
         if(lst == null || lst.size() <= 0) {
             Log.w("at main activity", "未检测到db文件");
             textview.setText("无词库");
@@ -98,11 +94,15 @@ public class main extends AppCompatActivity implements View.OnClickListener {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                    String db = lst.get(position);
+                    intent = new Intent(Main.this, WordDatabaseInfo.class);
+                    intent.putExtra("dbname", db);
+                    startActivity(intent);
                 }
             });
             textview.setText("请选择词库");
         }
     }
+
 
 }

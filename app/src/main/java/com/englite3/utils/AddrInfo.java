@@ -1,5 +1,8 @@
 package com.englite3.utils;
 
+/*
+用于记录用户云端配置信息
+ */
 public class AddrInfo {
     private String host, port, pubkey;
     private boolean ifaes;

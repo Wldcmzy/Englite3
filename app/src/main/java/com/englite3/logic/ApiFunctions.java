@@ -5,6 +5,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.englite3.Config;
+import com.englite3.database.DbOperator;
 import com.englite3.utils.AddrInfo;
 import com.englite3.utils.UserInfo;
 
@@ -14,12 +15,15 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Os {
+public class ApiFunctions {
 
-    public Os(){
+    public ApiFunctions(){
         ;
     }
 
+    /*
+    保存用户信息username, password到文件Config.user_file_name
+     */
     public static void saveUserInfo(Context context, String username, String password){
         try{
             String data = username + Config.SEP + password;
@@ -33,6 +37,9 @@ public class Os {
         }
     }
 
+    /*
+    从文件Config.user_file_name读取用户信息
+     */
     public static UserInfo getUserInfo(Context context){
         UserInfo ui = null;
         try {
@@ -54,6 +61,9 @@ public class Os {
         return ui;
     }
 
+    /*
+    保存用户的云端设置信息到文件Config.addr_file_name
+     */
     public static void saveCloudAddr(Context context, String host,String port, boolean ifaes, String pubkey){
         try{
             String data = host + Config.SEP + port + Config.SEP + Boolean.toString(ifaes);
@@ -69,6 +79,9 @@ public class Os {
         }
     }
 
+    /*
+    从文件Config.addr_file_name读取用户云端配置信息
+     */
     public static AddrInfo getCloudAddr(Context context){
         AddrInfo ai = null;
         try {
@@ -96,6 +109,9 @@ public class Os {
         return ai;
     }
 
+    /*
+    像云端服务器请求服务器的所有词库, 返回值List<String>中, String的格式为: "词库名_描述信息"
+     */
     public static List<String> queryDatabaseList(Context context){
         AddrInfo ai = getCloudAddr(context);
         UserInfo ui = getUserInfo(context);
@@ -112,6 +128,9 @@ public class Os {
         return db_list;
     }
 
+    /*
+    从云端服务器指定下载一个词库
+     */
     public static void downloadDatabase(Context context, String dbname){
         try{
             AddrInfo ai = getCloudAddr(context);
@@ -127,6 +146,9 @@ public class Os {
         }
     }
 
+    /*
+    从本地数据库目录中获取本地拥有的词库列表
+     */
     public static List<String> getDbName(Context context) {
         String path = Config.DatabaseDirPath;
         File file=new File(path);
@@ -146,4 +168,22 @@ public class Os {
         }
         return s;
     }
+
+    /*
+    在指定词库dop中, 把num个新单词加入规划
+     */
+    public static void randomAddFlagWords(Context context, DbOperator dop, int num){
+        if(num <= 0){
+            Toast.makeText(context, "请检查增加数量", Toast.LENGTH_SHORT).show();
+            return ;
+        }
+        int r = dop.randomAddFlagWords(num);
+        String s = "已增加" + r +"个单词进入规划";
+        if(r < num){
+            s = "单词数量不足," + s;
+        }
+        Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
+
+    }
+
 }

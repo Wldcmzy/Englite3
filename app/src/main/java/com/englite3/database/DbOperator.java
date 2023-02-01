@@ -1,11 +1,13 @@
 package com.englite3.database;
 
+import static com.englite3.utils.Api.randint;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
+import com.englite3.utils.Api;
 import com.englite3.utils.Word;
 
 import java.util.ArrayList;
@@ -19,11 +21,17 @@ public class DbOperator {
         db = new DbOpenHelper(context, dbname).getWritableDatabase();
     }
 
+    /*
+    重建WORD表
+     */
     public void reCreateWordTable(){
         db.execSQL(DbOpenHelper.WORD_TABLE_DELETE);
         db.execSQL(DbOpenHelper.WORD_TABLE_CREATE);
     }
 
+    /*
+    向WORD表中增加一个单词
+     */
     public long addOneWord(Word word){
         ContentValues values = new ContentValues();
         values.put(DbOpenHelper.EN, word.getEn());
@@ -37,6 +45,9 @@ public class DbOperator {
         return ret;
     }
 
+    /*
+    根据单词等级选出指定数量个单词
+     */
     public List<Word> selectWordsByLevel(int min, int max, int number){
         String[] span = {Integer.toString(min), Integer.toString(max), Integer.toString(number)};
         Cursor c = db.query(DbOpenHelper.WORD_TABLE_NAME, null, DbOpenHelper.LEVEL + " between ? and ? and " + DbOpenHelper.FLAG + " > 0", span, null, null, null);
@@ -46,31 +57,28 @@ public class DbOperator {
         String en, cn, pron, combo;
         int lv, e, flag;
         do{
-            for(int i=0;i<colNum;++i){
-                tmp = c.getColumnIndex(DbOpenHelper.EN);
-                en = c.getString(tmp);
-                tmp = c.getColumnIndex(DbOpenHelper.CN);
-                cn = c.getString(tmp);
-                tmp = c.getColumnIndex(DbOpenHelper.PRON);
-                pron = c.getString(tmp);
-                tmp = c.getColumnIndex(DbOpenHelper.COMBO);
-                combo = c.getString(tmp);
-                tmp = c.getColumnIndex(DbOpenHelper.LEVEL);
-                lv = c.getInt(tmp);
-                tmp = c.getColumnIndex(DbOpenHelper.E);
-                e = c.getInt(tmp);
-                tmp = c.getColumnIndex(DbOpenHelper.FLAG);
-                flag = c.getInt(tmp);
-                lst.add(new Word(en, cn, pron, combo, lv, e, flag));
-            }
+            tmp = c.getColumnIndex(DbOpenHelper.EN);
+            en = c.getString(tmp);
+            tmp = c.getColumnIndex(DbOpenHelper.CN);
+            cn = c.getString(tmp);
+            tmp = c.getColumnIndex(DbOpenHelper.PRON);
+            pron = c.getString(tmp);
+            tmp = c.getColumnIndex(DbOpenHelper.COMBO);
+            combo = c.getString(tmp);
+            tmp = c.getColumnIndex(DbOpenHelper.LEVEL);
+            lv = c.getInt(tmp);
+            tmp = c.getColumnIndex(DbOpenHelper.E);
+            e = c.getInt(tmp);
+            tmp = c.getColumnIndex(DbOpenHelper.FLAG);
+            flag = c.getInt(tmp);
+            lst.add(new Word(en, cn, pron, combo, lv, e, flag));
 
         }while (c.moveToNext());
 
         if(lst.size() > number){
-            Random random = new Random();
             int count = 0, x;
             while(count < number){
-                x = random.nextInt(lst.size());
+                x = randint(0, lst.size() - 1);
                 ret.add(lst.get(x));
                 lst.remove(x);
                 count += 1;
@@ -79,5 +87,94 @@ public class DbOperator {
             ret = lst;
         }
         return ret;
+    }
+
+    /*
+    获取已规划单词的梯度等级, 共有100 80 60 40 20 五个梯度
+    eg:
+    对于100%的单词,等级达到了x;
+    对于80%的单词,等级达到了y;
+     */
+    public int[] getWordsLevel(){
+        String[] columns = {DbOpenHelper.LEVEL};
+        String[] args = {"0"};
+        Cursor c = db.query(DbOpenHelper.WORD_TABLE_NAME, columns,DbOpenHelper.FLAG + " > ?", args,null,null,DbOpenHelper.LEVEL);
+        int cnt = c.getCount();
+        if(cnt == 0){
+            return new int[5];
+        }
+        int[] arr = new int[cnt], ret = new int[5];
+        int tmp;
+        c.moveToFirst();
+        for(int i=0; i<cnt; i++){
+            tmp = c.getColumnIndex(DbOpenHelper.LEVEL);
+            arr[i] = c.getInt(tmp);
+//            Log.d("levels", "arr[" + i + "] = " + arr[i]);
+            if(!c.moveToNext()) break;
+        }
+        if(cnt > 0) cnt -= 1;
+        float rate= 0;
+        for(int i=0; i<5; i++){
+            rate += 0.2;
+            tmp = (int)(cnt * rate);
+            ret[i] = arr[tmp];
+        }
+        return ret;
+    }
+
+    /*
+    flag = false: 获取词库中的单词总数
+    flag = true: 获取词库中已规划单词的总数
+     */
+    public int getWordsNumber(boolean flag){
+        String sql = "SELECT count(*) FROM " + DbOpenHelper.WORD_TABLE_NAME;
+        if(flag == true) sql += " WHERE " + DbOpenHelper.FLAG + " > 0 ";
+        Cursor cursor = db.rawQuery(sql, null);
+        cursor.moveToFirst();
+        return cursor.getInt(0);
+    }
+
+    /*
+    随机将指定数量个未规划单词加入规划
+     */
+    public int randomAddFlagWords(int number){
+        String[] columns = {DbOpenHelper.EN};
+        String[] args = {"0"};
+        Cursor c = db.query(DbOpenHelper.WORD_TABLE_NAME, columns,DbOpenHelper.FLAG + " = ?", args,null,null,null);
+        c.moveToFirst();
+        int cnt = c.getCount();
+        if(cnt == 0){
+            return 0;
+        }else if(cnt < number){
+            number = cnt;
+        }
+        List<String> lst = new ArrayList<String>();
+        int tmp;
+        do{
+            tmp = c.getColumnIndex(DbOpenHelper.EN);
+            lst.add(c.getString(tmp));
+        }while (c.moveToNext());
+
+        for(int i=0; i<number; i++){
+            int x = randint(0, lst.size() - 1);
+            String en = lst.get(x);
+            ContentValues values = new ContentValues();
+            values.put(DbOpenHelper.FLAG, 1);
+            String[] args_ = {en};
+            db.update(DbOpenHelper.WORD_TABLE_NAME, values, DbOpenHelper.EN + " = ? ", args_);
+            lst.remove(x);
+        }
+
+        return number;
+    }
+
+    public void updateLevel(Word word){
+        String en = word.getEn();
+        int lv = word.getLv(), e = word.getE();
+        ContentValues values = new ContentValues();
+        values.put(DbOpenHelper.LEVEL, lv);
+        values.put(DbOpenHelper.E, e);
+        String[] args_ = {en};
+        db.update(DbOpenHelper.WORD_TABLE_NAME, values, DbOpenHelper.EN + " = ? ", args_);
     }
 }

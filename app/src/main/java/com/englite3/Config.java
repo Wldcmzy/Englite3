@@ -21,6 +21,8 @@ public class Config {
     public static final String DENY = "DENY";
     public static final String NODB = "NODB";
 
+    public static final int WORD_MAX_LEVEL = 33554432; // 2^25
+
     public Config(){
 
     }

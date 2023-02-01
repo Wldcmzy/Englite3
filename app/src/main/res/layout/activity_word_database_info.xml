@@ -6,121 +6,254 @@
     android:layout_height="match_parent"
     tools:context=".activities.WordDatabaseInfo">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/db__name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="25dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text=""
-            android:padding="10dp"
-            android:layout_margin="15dp">
-        </TextView>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/db_save"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="导出词库"
-                android:padding="10dp"
-                android:layout_margin="15dp"
-                android:background="@color/bt1"/>
-
-            <Button
-                android:id="@+id/db_upload"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_weight="1"
-                android:layout_margin="15dp"
-                android:text="上传词库"
-                android:background="@color/bt1"/>
-
-            <Button
-                android:id="@+id/start_recite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="10dp"
-                android:layout_margin="15dp"
-                android:text="开始背单词"
-                android:background="@color/bt1"/>
-
-        </LinearLayout>
-
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/db_status_100"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text=""
-                android:padding="5dp"
-                android:layout_margin="5dp">
-            </TextView>
-            <TextView
-                android:id="@+id/db_status_80"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text=""
-                android:padding="5dp"
-                android:layout_margin="5dp">
-            </TextView>
-            <TextView
-                android:id="@+id/db_status_60"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text=""
-                android:padding="5dp"
-                android:layout_margin="5dp">
-            </TextView>
-            <TextView
-                android:id="@+id/db_status_40"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text=""
-                android:padding="5dp"
-                android:layout_margin="5dp">
-            </TextView>
-            <TextView
-                android:id="@+id/db_status_20"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text=""
-                android:padding="5dp"
-                android:layout_margin="5dp">
-            </TextView>
-        </LinearLayout>
-    </LinearLayout>
 
+
+            <TextView
+                android:id="@+id/db__name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text=""
+                android:padding="10dp"
+                android:layout_margin="15dp">
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:textSize="20dp"
+                    android:text="设置最低等级:"/>
+                <EditText
+                    android:id="@+id/level_min"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="0"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:textSize="20dp"
+                    android:text="设置最高等级:"/>
+                <EditText
+                    android:id="@+id/level_max"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="33554432"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:textSize="20dp"
+                    android:text="设置背诵数量:"/>
+                <EditText
+                    android:id="@+id/recite_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="50"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/db_export"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="导出词库"
+                    android:padding="10dp"
+                    android:layout_margin="5dp"
+                    android:background="@color/bt1"/>
+
+                <Button
+                    android:id="@+id/db_upload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:text="上传词库"
+                    android:background="@color/bt1"/>
+
+                <Button
+                    android:id="@+id/db_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:layout_margin="5dp"
+                    android:text="删除词库"
+                    android:background="@color/bt1"/>
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/start_recite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="开始背单词"
+                android:background="@color/bt2"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:id="@+id/totalwords"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text=""
+                    android:padding="5dp"
+                    android:layout_margin="5dp"/>
+
+                <TextView
+                    android:id="@+id/flagwords"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text=""
+                    android:padding="5dp"
+                    android:layout_margin="5dp"/>
+
+                <TextView
+                    android:id="@+id/db_status_100"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text=""
+                    android:padding="5dp"
+                    android:layout_margin="5dp">
+                </TextView>
+                <TextView
+                    android:id="@+id/db_status_80"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text=""
+                    android:padding="5dp"
+                    android:layout_margin="5dp">
+                </TextView>
+                <TextView
+                    android:id="@+id/db_status_60"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text=""
+                    android:padding="5dp"
+                    android:layout_margin="5dp">
+                </TextView>
+                <TextView
+                    android:id="@+id/db_status_40"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text=""
+                    android:padding="5dp"
+                    android:layout_margin="5dp">
+                </TextView>
+                <TextView
+                    android:id="@+id/db_status_20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text=""
+                    android:padding="5dp"
+                    android:layout_margin="5dp">
+                </TextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:textSize="20dp"
+                        android:text="新增规划数量:"/>
+                    <EditText
+                        android:id="@+id/add_flagwords_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:text="0"
+                        />
+
+                </LinearLayout>
+                <Button
+                    android:id="@+id/add_flagwords"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@color/green1"
+                    android:text="随机将单词加入规划"/>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

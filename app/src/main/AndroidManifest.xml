@@ -22,19 +22,19 @@
             android:name=".activities.WordDatabaseInfo"
             android:exported="false" />
         <activity
-            android:name=".activities.CloudUserInfoSetting"
+            android:name=".activities.CloudSettingUserInfo"
             android:exported="false" />
         <activity
-            android:name=".activities.CloudSetting"
+            android:name=".activities.CloudSettingRemote"
             android:exported="false" />
         <activity
-            android:name=".activities.Cloud"
+            android:name=".activities.CloudQuery"
             android:exported="false" />
         <activity
-            android:name=".activities.functions"
+            android:name=".activities.More"
             android:exported="false" />
         <activity
-            android:name=".activities.main"
+            android:name=".activities.Main"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

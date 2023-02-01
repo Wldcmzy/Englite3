@@ -91,10 +91,17 @@ public class Tcp {
         }
     }
 
+    /*
+    随机生成AES密钥
+    未实现
+     */
     private String generateAesKey(){
         return "123";
     }
 
+    /*
+    新建一个客户端的Socket
+     */
     private Socket newClient(String host, String port) {
         Socket client = null;
         try{
@@ -108,6 +115,10 @@ public class Tcp {
         }
         return client;
     }
+
+    /*
+    关闭Socket
+     */
     private void closeClient(Socket sk) throws IOException{
         InputStream i= sk.getInputStream();
         OutputStream o= sk.getOutputStream();
@@ -116,6 +127,10 @@ public class Tcp {
         sk.close();
     }
 
+    /*
+    发送一条Tcp信息
+    加密未实现
+     */
     private void send(Socket sk, String data, int mod) throws IOException {
         try{
             byte[] bytes = data.getBytes(Tcp.charset);
@@ -133,6 +148,10 @@ public class Tcp {
         }
     }
 
+    /*
+    接收一条socket信息
+    加密未实现
+     */
     private String recv(Socket sk, int mod) throws IOException{
         String rev = null;
         try{
@@ -155,6 +174,11 @@ public class Tcp {
         return rev;
     }
 
+
+    /*
+    向服务器请求服务器的词库列表
+    注意, 这个函数对长信息未作处理, 若词库列表较长, 应该会出问题
+     */
     public List<String> query_db_list(){
         Thread t = new Thread() {
             @Override
@@ -255,6 +279,9 @@ public class Tcp {
     }
 
 
+    /*
+    从服务器下载一个指定的数据库
+     */
     public String download_db(String dbname) {
         Thread t = new Thread() {
             @Override
