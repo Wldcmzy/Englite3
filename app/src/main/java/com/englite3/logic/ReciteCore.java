@@ -52,16 +52,14 @@ public class ReciteCore {
     }
 
     /*
-    若单词积累错误次数达到totalWrong,判断用户是否背过这个单词
-    判断依据: 在本次背诵中,积累错误totalWrong次的单词需要至少连续背过repeatRight次,算背过,否则算没背过
-    返回值: true代表判断为背过
+    返回值: true代表该单词错误次数在totalWrongMin-totalRightMax范围内,且背认定为为背过
      */
-    private boolean verify(Word word, int totalWrong, int repeatRight){
-        if(word.getTotalWrongTimes() >= totalWrong && word.getRepeatRightTimes() + 1 < repeatRight){
-            word.setRepeatRightTimes(word.getRepeatRightTimes() + 1);
-            return false;
-        }
-        return true;
+    private boolean verify(Word word, int totalWrongMin, int totalWrongMax, int repeatRight){
+        return (
+                word.getTotalWrongTimes() > totalWrongMin &&
+                word.getTotalWrongTimes() <= totalWrongMax &&
+                word.getRepeatRightTimes() >= repeatRight
+        );
     }
 
 
@@ -69,10 +67,15 @@ public class ReciteCore {
     判断用户是否背过一个单词
      */
     private boolean seriesVerify(Word word){
-        if(!verify(word, 5, 5)) return false;
-        if(!verify(word, 3, 4)) return false;
-        if(!verify(word, 1, 3)) return false;
-        return true;
+        // 0-0: 0, 1-1: 3, 2-3: 4, 3-INF: 5
+        int[] errorSpans = {-1, 0, 1, 3, 0x3fffffff};
+        int[] repeatTimes = {0, 3, 4, 5};
+        for(int i=0; i<repeatTimes.length; i++){
+            if(verify(word, errorSpans[i], errorSpans[i + 1], repeatTimes[i])){
+                return true;
+            }
+        }
+        return false;
     }
 
     /*
@@ -89,8 +92,8 @@ public class ReciteCore {
      */
     public int grasp(Word word){
         if(word == null) return 0;
+        word.setRepeatRightTimes(word.getRepeatRightTimes() + 1);
         if(seriesVerify(word) == false){
-            word.setRepeatRightTimes(word.getRepeatRightTimes() + 1);
             pool.add(word);
             Log.d("at ReciteRender", "grasp: " + word.getEn() + " but system judge not grasp");
         }else{
