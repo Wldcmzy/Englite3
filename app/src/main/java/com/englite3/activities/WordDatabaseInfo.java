@@ -1,6 +1,6 @@
 package com.englite3.activities;
 
-import static com.englite3.logic.ApiFunctions.randomAddFlagWords;
+import static com.englite3.logic.Functions.randomAddFlagWords;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +21,7 @@ public class WordDatabaseInfo extends AppCompatActivity implements View.OnClickL
 
     private String dbname;
     private DbOperator dop;
-    private TextView db__name, sta100, sta80, sta60, sta40, sta20, flagwords, totalwords;
+    private TextView db__name, sta100, sta80, sta60, sta40, sta20, sta0, flagwords, totalwords;
     private Button db_upload, db_export, db_delete, recite, addflagwords;
     private EditText level_min, level_max, recitenumber, addflagwordsnumber;
 
@@ -32,6 +32,7 @@ public class WordDatabaseInfo extends AppCompatActivity implements View.OnClickL
         sta60= findViewById(R.id.db_status_60);
         sta40= findViewById(R.id.db_status_40);
         sta20= findViewById(R.id.db_status_20);
+        sta0 = findViewById(R.id.db_status_0);
         level_min = findViewById(R.id.level_min);
         level_max = findViewById(R.id.level_max);
         flagwords = findViewById(R.id.flagwords);
@@ -66,6 +67,7 @@ public class WordDatabaseInfo extends AppCompatActivity implements View.OnClickL
         sta60.setText(String.format(s, 60, stas[2]));
         sta40.setText(String.format(s, 40, stas[3]));
         sta20.setText(String.format(s, 20, stas[4]));
+        sta0.setText("在所有的单词中,等级最高达到了" + stas[5]);
     }
 
     @Override
@@ -77,8 +79,13 @@ public class WordDatabaseInfo extends AppCompatActivity implements View.OnClickL
         dop = new DbOperator(this, Config.Dbprefix + dbname);
 
         initView();
-        resetText();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        resetText();
     }
 
     @Override

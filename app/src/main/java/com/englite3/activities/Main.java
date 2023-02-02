@@ -18,7 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
-import com.englite3.logic.ApiFunctions;
+import com.englite3.logic.Functions;
 
 public class Main extends AppCompatActivity implements View.OnClickListener {
     private long mExitTime;
@@ -84,7 +84,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
 
 
     public void showDbName(){
-        List<String> lst = ApiFunctions.getDbName(this);
+        List<String> lst = Functions.getDbName(this);
         if(lst == null || lst.size() <= 0) {
             Log.w("at main activity", "未检测到db文件");
             textview.setText("无词库");

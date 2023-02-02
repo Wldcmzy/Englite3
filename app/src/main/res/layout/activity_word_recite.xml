@@ -12,85 +12,109 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/remainnum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:textSize="15dp"
+            android:text="test"
+            android:gravity="center">
+        </TextView>
+
+        <TextView
+            android:id="@+id/en"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="35dp"
+            android:text="test"
+            android:gravity="center"
+            android:textColor="@color/green1">
+        </TextView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#336699"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/pron"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="16dp"
+                    android:text="test"
+                    android:gravity="center"
+                    android:textColor="@color/blue1">
+                </TextView>
+                <TextView
+                    android:id="@+id/cn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20dp"
+                    android:minLines="3"
+                    android:maxLines="20"
+                    android:text="test"
+                    android:gravity="center"
+                    android:textColor="@color/red1">
+                </TextView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#996633"/>
+
+                <TextView
+                    android:id="@+id/combo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20dp"
+                    android:minLines="3"
+                    android:maxLines="20"
+                    android:text="test"
+                    android:gravity="center">
+                </TextView>
+
+            </LinearLayout>
+        </ScrollView>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/en"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:textSize="35dp"
-                android:text="test"
-                android:gravity="center"
-                android:textColor="@color/green1">
-            </TextView>
-            <TextView
-                android:id="@+id/pron"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:textSize="25dp"
-                android:text="test"
-                android:gravity="center"
-                android:textColor="@color/blue1">
-            </TextView>
-            <TextView
-                android:id="@+id/cn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:textSize="25dp"
-                android:minLines="3"
-                android:maxLines="20"
-                android:text="test"
-                android:gravity="center"
-                android:textColor="@color/red1">
-            </TextView>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#996633"/>
-
-            <TextView
-                android:id="@+id/combo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:textSize="25dp"
-                android:minLines="3"
-                android:maxLines="20"
-                android:text="test"
-                android:gravity="center">
-            </TextView>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:orientation="horizontal">
             <Button
                 android:id="@+id/unfamiliar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/no"
-                android:text="忘记"/>
+                android:textSize="20dp"
+                android:text="忘记"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"/>
             <Button
                 android:id="@+id/grasp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/yes"
-                android:text="认识"/>
+                android:textSize="20dp"
+                android:text="认识"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"/>
         </LinearLayout>
-
-
 
     </LinearLayout>
 

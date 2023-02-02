@@ -1,7 +1,7 @@
 package com.englite3.logic;
 
-import static com.englite3.utils.Api.fastPower;
-import static com.englite3.utils.Api.randint;
+import static com.englite3.utils.Tools.fastPower;
+import static com.englite3.utils.Tools.randint;
 
 import android.util.Log;
 
@@ -10,17 +10,20 @@ import com.englite3.utils.Word;
 
 import java.util.List;
 
-public class ReciteRandomer {
+public class ReciteCore {
     private List<Word> pool;
     private DbOperator dop;
     private Word wordActive, wordPrepare;
 
-    public ReciteRandomer(DbOperator dop, int mn, int mx, int num) {
+    public ReciteCore(DbOperator dop, int mn, int mx, int num) {
         this.dop = dop;
         this.pool = dop.selectWordsByLevel(mn, mx, num);
         wordActive = wordPrepare = null;
     }
 
+    /*
+    从单词列表中随机挑选一个单词
+     */
     private Word randomChoice(){
         Word word = null;
         if(pool.size() > 0){
@@ -33,6 +36,10 @@ public class ReciteRandomer {
         return word;
     }
 
+    /*
+    得到下一个要背的单词
+    这个方法保证了在剩下多余一个单词的情况下不会连续出现相同的单词
+     */
     public Word next(){
         if(wordPrepare == null){
             wordActive = randomChoice();
@@ -44,7 +51,7 @@ public class ReciteRandomer {
     }
 
     /*
-    判断用户是否背过一个单词
+    若单词积累错误次数达到totalWrong,判断用户是否背过这个单词
     判断依据: 在本次背诵中,积累错误totalWrong次的单词需要至少连续背过repeatRight次,算背过,否则算没背过
     返回值: true代表判断为背过
      */
@@ -57,38 +64,59 @@ public class ReciteRandomer {
     }
 
 
+    /*
+    判断用户是否背过一个单词
+     */
     private boolean seriesVerify(Word word){
-        if(verify(word, 5, 5)) return true;
-        if(verify(word, 3, 4)) return true;
-        if(verify(word, 1, 3)) return true;
-        return false;
+        if(!verify(word, 5, 5)) return false;
+        if(!verify(word, 3, 4)) return false;
+        if(!verify(word, 1, 3)) return false;
+        return true;
     }
 
-    public boolean grasp(Word word){
+    /*
+    返回剩余单词数
+     */
+    public int getCount(){
+        int wordRemain = pool.size();
+        if(wordPrepare != null) wordRemain += 1;
+        return wordRemain;
+    }
+
+    /*
+    对单词执行背过操作
+     */
+    public int grasp(Word word){
+        if(word == null) return 0;
         if(seriesVerify(word) == false){
             word.setRepeatRightTimes(word.getRepeatRightTimes() + 1);
             pool.add(word);
-            Log.d("at ReciteRender", "grasp:" + word.getEn() + " but system judge not grasp");
-            return false;
+            Log.d("at ReciteRender", "grasp: " + word.getEn() + " but system judge not grasp");
         }else{
             if(word.getTotalWrongTimes() == 0){
-                word.setE(word.getE() + 1);
-                int lim = fastPower(2, word.getE());
+                int e = word.getE();
+                if(e < 24) e += 1;
+                word.setE(e);
+                int lim = fastPower(2, e);
                 word.setLv(randint(lim, lim << 1));
-                Log.d("at ReciteRender", "grasp:" + word.getEn() + "set E, LV = " + word.getE() + ", " +  word.getLv());
+                Log.d("at ReciteRender", "grasp: " + word.getEn() + "set E, LV = " + word.getE() + ", " +  word.getLv());
             }
             dop.updateLevel(word);
-            Log.d("at ReciteRender", "remove from temp wordlist:" + word.getEn());
-            return true;
+            Log.d("at ReciteRender", "remove from temp wordlist: " + word.getEn());
         }
+        return getCount();
     }
 
+    /*
+    对单词执行忘记操作
+     */
     public void unfamiliar(Word word){
+        if(word == null) return ;
         word.setE(0);
         word.setLv(0);
         word.setTotalWrongTimes(word.getTotalWrongTimes() + 1);
         word.setRepeatRightTimes(0);
         pool.add(word);
-        Log.d("at ReciteRender", "unfamiliar:" + word.getEn() + "set E, LV = 0, 0");
+        Log.d("at ReciteRender", "unfamiliar: " + word.getEn() + "set E, LV = 0, 0");
     }
 }

@@ -1,7 +1,7 @@
 package com.englite3.activities;
 
-import static com.englite3.logic.ApiFunctions.getUserInfo;
-import static com.englite3.logic.ApiFunctions.saveUserInfo;
+import static com.englite3.logic.Functions.getUserInfo;
+import static com.englite3.logic.Functions.saveUserInfo;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;

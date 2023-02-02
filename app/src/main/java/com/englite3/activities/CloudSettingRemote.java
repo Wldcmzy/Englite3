@@ -1,7 +1,7 @@
 package com.englite3.activities;
 
-import static com.englite3.logic.ApiFunctions.getCloudAddr;
-import static com.englite3.logic.ApiFunctions.saveCloudAddr;
+import static com.englite3.logic.Functions.getCloudAddr;
+import static com.englite3.logic.Functions.saveCloudAddr;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;

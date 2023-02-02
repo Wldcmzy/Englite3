@@ -15,9 +15,9 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ApiFunctions {
+public class Functions {
 
-    public ApiFunctions(){
+    public Functions(){
         ;
     }
 
@@ -118,7 +118,10 @@ public class ApiFunctions {
         List<String> db_list = new ArrayList<>();
         if(ai == null){
             Toast.makeText(context, "服务器配置读取失败", Toast.LENGTH_SHORT).show();
-        }else{
+        }else if(ui == null){
+            Toast.makeText(context, "用户信息读取失败", Toast.LENGTH_SHORT).show();
+        }
+        else {
             Tcp tcp = new Tcp(context, ai, ui);
             db_list = tcp.query_db_list();
             String sta = db_list.get(0);
@@ -137,10 +140,13 @@ public class ApiFunctions {
             UserInfo ui = getUserInfo(context);
             if(ai == null){
                 Toast.makeText(context, "服务器配置读取失败", Toast.LENGTH_SHORT).show();
+            }else if(ui == null){
+                Toast.makeText(context, "用户信息读取失败", Toast.LENGTH_SHORT).show();
+            }else{
+                Tcp tcp = new Tcp(context, ai, ui);
+                String sta = tcp.download_db(dbname);
+                Toast.makeText(context, sta, Toast.LENGTH_SHORT).show();
             }
-            Tcp tcp = new Tcp(context, ai, ui);
-            String sta = tcp.download_db(dbname);
-            Toast.makeText(context, sta, Toast.LENGTH_SHORT).show();
         } catch (Exception e){
             Log.e("at Os download", e.getMessage());
         }

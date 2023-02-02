@@ -1,7 +1,7 @@
 package com.englite3.activities;
 
-import static com.englite3.logic.ApiFunctions.downloadDatabase;
-import static com.englite3.logic.ApiFunctions.queryDatabaseList;
+import static com.englite3.logic.Functions.downloadDatabase;
+import static com.englite3.logic.Functions.queryDatabaseList;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
