@@ -1,18 +1,22 @@
 import socket
 import threading
 import random
+import os
 from .utils.log import (
     logger,
     format_error,
 )
 from .utils.sysApi import (
     dbpath,
+    userpath,
     usersdb,
     get_db_list,
 )
 from .utils.sqlApi import (
     opendb,
     select_all,
+    recreate_wordtable,
+    addone,
 
     open_users_db,
     identify,
@@ -61,11 +65,11 @@ class Server:
     def Crecv(cls, sk: socket.socket, mod: int, buffersize: int, key: str = None) -> str:
         data = sk.recv(buffersize)
         if mod == cls.AESMOD:
-            data = data.decode('utf-8')
+            data = data.decode('utf-8', "replace")
         elif mod == cls.RSAMOD:
-            data = data.decode('utf-8')
+            data = data.decode('utf-8', "replace")
         elif mod == cls.NONEMOD:
-            data = data.decode('utf-8')
+            data = data.decode('utf-8', "replace")
         return data
 
     @classmethod
@@ -115,7 +119,8 @@ class Server:
             logger.info(f'{threading.current_thread().name} addr={addr} query database list.')
             self.__query_db_list(sk)
         elif num == self.SAVE_DB:
-            pass
+            logger.info(f'{threading.current_thread().name} addr={addr} wanna upload database, name = {dbname}')
+            self.__receive_db_info(sk, username, dbname)
         elif num == self.LOAD_DB:
             logger.info(f'{threading.current_thread().name} addr={addr} wanna download database, name = {dbname}')
             self.__send_db_info(sk, dbname)
@@ -158,6 +163,61 @@ class Server:
 
             self.Csend(sk, self.END, self.AESMOD)
             sk.close()
+        except Exception as e:
+            format_error(e, f'线程名:{threading.current_thread().name}')
+
+    def __receive_db_info(self, sk: socket.socket, username: str, dbname: str):
+        try:
+            if not os.path.exists(userpath / username):
+                os.makedirs(userpath / username)
+            
+            conn = opendb(userpath / username / dbname)
+            recreate_wordtable(conn)
+            logger.info('recreate ok')
+            c = conn.cursor()
+
+            can_exit = False
+            remain = ''
+            no_end = False
+            lst = []
+            while True:
+                data = self.Crecv(sk, self.AESMOD, self.buffersize)
+                if len(remain) > 0:
+                    data = remain + data
+                    remain = ''
+                
+                if data.endswith(self.END):
+                    can_exit = True
+                    data = data[ : -len(self.END)]
+                
+                if not (data != '' and can_exit):
+                    if data.endswith(self.SEP):
+                        data = data[ : -len(self.SEP)]
+                        no_end = False
+                    else:
+                        no_end = True
+
+                    datas = data.split(self.SEP)
+                
+                    for i in range(len(datas)):
+                        info = datas[i]
+                        if i == len(datas) - 1 and no_end == True:
+                            remain = info
+                        else:
+                            # logger.info(str(info.split(self.WORDSEP)))
+                            en, cn, pron, combo, level, e, flag = info.split(self.WORDSEP)
+                            level, e, flag = int(level), int(e), int(flag)
+                            lst.append((en, cn, pron, combo, level, e, flag))
+
+                if can_exit:
+                    for each in lst:
+                        addone(c, *each)
+                        # print(each[0])
+                    conn.commit()
+                    # print(len(lst))
+                    logger.info(f'{threading.current_thread().name} database upload finished dbname = {dbname}')
+                    break
+
         except Exception as e:
             format_error(e, f'线程名:{threading.current_thread().name}')
 

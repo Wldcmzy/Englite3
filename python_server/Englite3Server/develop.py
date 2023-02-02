@@ -1,5 +1,14 @@
-from .utils.sqlApi import adduser, open_users_db, deluser, identify, select_all_user
-from .utils.sysApi import usersdb
+from .utils.sqlApi import (
+    adduser, 
+    open_users_db, 
+    deluser, 
+    identify, 
+    select_all_user,
+    select_all,
+)
+from .utils.sysApi import usersdb, userpath
+import sqlite3
+import os
 
 
 class Develop:
@@ -21,6 +30,8 @@ class Develop:
                 self.idt()
             elif op == 4:
                 self.seeall()
+            elif op == 5:
+                self.look_users_db()
     
     def run(self):
         self.operator()
@@ -32,6 +43,7 @@ class Develop:
         2. 删除用户
         3. 确认
         4. 查看所有用户
+        5. 查看一个用户目录的数据库
         '''.strip()
     
     def add(self):
@@ -52,6 +64,16 @@ class Develop:
         for u, p, ad, t in  select_all_user(self.conn):
             print(u, ad, t)
     
+    def look_users_db(self):
+        username = input('username = ')
+        dbname = input('dbname = ')
+        if os.path.exists(userpath / username / dbname):
+            conn = sqlite3.Connection(userpath / username / dbname)
+            x = select_all(conn)
+            print('总量:' + str(len(x)))
+            print('前五个:' + str(x[:5]))
+        else:
+            print(str(userpath / username / dbname),'不存在')
 
 
     

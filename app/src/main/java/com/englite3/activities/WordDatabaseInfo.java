@@ -1,6 +1,7 @@
 package com.englite3.activities;
 
 import static com.englite3.logic.Functions.randomAddFlagWords;
+import static com.englite3.logic.Functions.uploadDatabase;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -95,6 +96,7 @@ public class WordDatabaseInfo extends AppCompatActivity implements View.OnClickL
             case R.id.db_export:
                 break;
             case R.id.db_upload:
+                confirm(R.id.db_upload, 0);
                 break;
             case R.id.start_recite:
                 mn = Integer.parseInt(level_min.getText().toString());
@@ -124,6 +126,8 @@ public class WordDatabaseInfo extends AppCompatActivity implements View.OnClickL
             case R.id.add_flagwords:
                 query = "你希望再把" + arg + "个加入规划, 是否继续?";
                 break;
+            case R.id.db_upload:
+                query = "你确定要把词库" + dbname + "同步到云端吗?";
             default:
                 break;
         }
@@ -137,6 +141,9 @@ public class WordDatabaseInfo extends AppCompatActivity implements View.OnClickL
                                     case R.id.add_flagwords:
                                         randomAddFlagWords(WordDatabaseInfo.this, dop, arg);
                                         resetText();
+                                        break;
+                                    case R.id.db_upload:
+                                        uploadDatabase(WordDatabaseInfo.this, dbname);
                                         break;
                                     default:
                                         break;

@@ -1,5 +1,6 @@
 package com.englite3.database;
 
+import static com.englite3.utils.Tools.fastPower;
 import static com.englite3.utils.Tools.randint;
 
 import android.content.ContentValues;
@@ -8,6 +9,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.englite3.Config;
 import com.englite3.utils.Word;
 
 import java.util.ArrayList;
@@ -41,16 +43,30 @@ public class DbOperator {
         long ret = db.insert(DbOpenHelper.WORD_TABLE_NAME, null, values);
         return ret;
     }
+
+    /*
+    获取词库所有单词
+     */
+    public List<Word> selectAll(){
+        return selectWordsByLevel(-1, fastPower(2, Config.WORD_MAX_E + 2), 0x3fffffff, false);
+    }
+
     /*
     根据单词等级选出指定数量个单词
      */
-    public List<Word> selectWordsByLevel(int min, int max, int number){
+    public List<Word> selectWordsByLevel(int min, int max, int number, boolean isflag){
         List<Word> ret = new ArrayList<Word>();
-        try{
-            String[] columns = {"*"};
-            String[] args = {Integer.toString(min), Integer.toString(max), "0"};
-            Cursor c = db.query(DbOpenHelper.WORD_TABLE_NAME, columns, " ( " + DbOpenHelper.LEVEL + " between ? and ? ) and ( " + DbOpenHelper.FLAG + " > ? );", args, null, null, null);
-
+        try {
+            Cursor c;
+            if (isflag) {
+                String[] columns = {"*"};
+                String[] args = {Integer.toString(min), Integer.toString(max), "0"};
+                c = db.query(DbOpenHelper.WORD_TABLE_NAME, columns, " ( " + DbOpenHelper.LEVEL + " between ? and ? ) and ( " + DbOpenHelper.FLAG + " > ? );", args, null, null, null);
+            } else {
+                String[] columns = {"*"};
+                String[] args = {Integer.toString(min), Integer.toString(max)};
+                c = db.query(DbOpenHelper.WORD_TABLE_NAME, columns, DbOpenHelper.LEVEL + " between ? and ? ;", args, null, null, null);
+            }
             List<Word> lst = new ArrayList<Word>();
             c.moveToFirst();
             int tmp;

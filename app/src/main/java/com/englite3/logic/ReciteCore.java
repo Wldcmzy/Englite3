@@ -5,6 +5,7 @@ import static com.englite3.utils.Tools.randint;
 
 import android.util.Log;
 
+import com.englite3.Config;
 import com.englite3.database.DbOperator;
 import com.englite3.utils.Word;
 
@@ -17,7 +18,7 @@ public class ReciteCore {
 
     public ReciteCore(DbOperator dop, int mn, int mx, int num) {
         this.dop = dop;
-        this.pool = dop.selectWordsByLevel(mn, mx, num);
+        this.pool = dop.selectWordsByLevel(mn, mx, num, true);
         wordActive = wordPrepare = null;
     }
 
@@ -95,10 +96,10 @@ public class ReciteCore {
         }else{
             if(word.getTotalWrongTimes() == 0){
                 int e = word.getE();
-                if(e < 24) e += 1;
+                if(e < Config.WORD_MAX_E) e += 1;
                 word.setE(e);
                 int lim = fastPower(2, e);
-                word.setLv(randint(lim, lim << 1));
+                word.setLv(randint(lim >> 1, lim));
                 Log.d("at ReciteRender", "grasp: " + word.getEn() + "set E, LV = " + word.getE() + ", " +  word.getLv());
             }
             dop.updateLevel(word);
@@ -117,6 +118,7 @@ public class ReciteCore {
         word.setTotalWrongTimes(word.getTotalWrongTimes() + 1);
         word.setRepeatRightTimes(0);
         pool.add(word);
+        dop.updateLevel(word);
         Log.d("at ReciteRender", "unfamiliar: " + word.getEn() + "set E, LV = 0, 0");
     }
 }

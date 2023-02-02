@@ -133,7 +133,7 @@ public class Tcp {
      */
     private void send(Socket sk, String data, int mod) throws IOException {
         try{
-            byte[] bytes = data.getBytes(Tcp.charset);
+            byte[] bytes = data.getBytes(Tcp.charset), btyes2;
             if(mod == Tcp.AesMod){
                 // 暂无加密
             }
@@ -142,6 +142,9 @@ public class Tcp {
 
             }
             OutputStream out = sk.getOutputStream();
+//            while(bytes.length > 1024){
+//                bytes2 =
+//            }
             out.write(bytes);
         }catch(IOException e){
             Log.e("SEND",e.getMessage());
@@ -353,7 +356,7 @@ public class Tcp {
                         }
                     }
                     closeClient(client);
-                    Log.d("atTcp", "Socket  ||||||   closed");
+                    Log.d("atTcp download", "Socket  ||||||   closed");
 //                    Looper.myLooper().quit();
 
                 } catch (ConnectException e) {
@@ -376,7 +379,90 @@ public class Tcp {
         while (t.isAlive()) {
             Log.d("at Tcp downloadDB", "task is Alive........");
             SystemClock.sleep(200);
-            if (x > 5000) {
+            if (x > 30000) {
+                List<String> ee = new ArrayList<String>();
+                ee.add("超时");
+                Tcp.setRecvs(ee);
+                break;
+            }
+            x += 200;
+        }
+        return Tcp.getRecvs().get(0);
+    }
+
+    public String upload_db(String dbname) {
+        Thread t = new Thread() {
+            @Override
+            public void run() {
+                List<String> revlst = new ArrayList<String>();
+//                Looper.prepare();
+                try {
+                    Socket client = newClient(ai.getHost(), ai.getPort());
+                    if (client == null) {
+                        throw new ConnectException("未能成功链接服务器");
+                    }
+
+                    String rev;
+                    boolean exit = false;
+
+                    String key = generateAesKey();
+                    aeskey = key;
+                    send(client, key, firstMod);
+
+                    rev = recv(client, nextMod);
+
+                    String login_and_query_msg = ui.getUsername() + "_" + ui.getPassword() + "_" + Integer.toString(Config.UPLAOD_DB) + "_" + dbname;
+                    send(client, login_and_query_msg, nextMod);
+
+                    rev = recv(client, nextMod);
+                    if (rev.equals(Config.DENY)) {
+                        throw new ServerDenyException("未通过身份验证,服务器拒绝服务");
+                    } else {
+                        DbOperator dop = new DbOperator(context, Config.Dbprefix + dbname);
+                        List<Word> wordlist = dop.selectAll();
+                        Word w;
+                        for(int i=0; i<wordlist.size(); i++) {
+                            w = wordlist.get(i);
+                            String s = "";
+                            s += w.getEn() + Config.WORDSEP;
+                            s += w.getCn() + Config.WORDSEP;
+                            s += w.getPron() + Config.WORDSEP;
+                            s += w.getCombo() + Config.WORDSEP;
+                            s += Integer.toString(w.getLv()) + Config.WORDSEP;
+                            s += Integer.toString(w.getE())  + Config.WORDSEP;
+                            s += Integer.toString(w.getFlag());
+                            s += Config.SEP;
+
+                            send(client, s, nextMod);
+                        }
+                        send(client, Config.END, nextMod);
+                    }
+                    closeClient(client);
+                    Log.d("atTcp upload", "Socket  ||||||   closed");
+//                    Looper.myLooper().quit();
+                    revlst.add(Tcp.transOK);
+
+                } catch (ConnectException e) {
+//                    Toast.makeText(context, "链接异常", Toast.LENGTH_SHORT).show();
+                    revlst.add(0, Tcp.linkERROR);
+                    Log.e("at TCP_uploadDB", e.getMessage());
+                } catch (ServerDenyException e) {
+                    revlst.add(0, Tcp.verfyDENY);
+                } catch (Exception e) {
+//                    Toast.makeText(context, "发生错误", Toast.LENGTH_SHORT).show();
+                    revlst.add(0, Tcp.unknowERROR);
+                    Log.e("at TCP_uploadDB", e.getMessage());
+                }
+//                Looper.loop();
+                Tcp.setRecvs(revlst);
+            }
+        };
+        t.start();
+        int x = 0;
+        while (t.isAlive()) {
+            Log.d("at Tcp uploadDB", "task is Alive........");
+            SystemClock.sleep(200);
+            if (x > 30000) {
                 List<String> ee = new ArrayList<String>();
                 ee.add("超时");
                 Tcp.setRecvs(ee);

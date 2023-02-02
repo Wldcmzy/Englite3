@@ -1,4 +1,0 @@
-2023-01-30 20:11:05,108 <INFO>: 服务器已开启, ip:0.0.0.0 port:37202
-2023-01-30 20:11:07,091 <INFO>: 客户端: ('192.168.1.103', 36346) 链接, 分派线程 Englite3TCP_1
-2023-01-30 20:11:07,097 <INFO>: Englite3TCP_1 addr=('192.168.1.103', 36346) wanna download database, name = 3
-2023-01-30 20:11:07,098 <INFO>: dbname not exist 3 ['civi.db']

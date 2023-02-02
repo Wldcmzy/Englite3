@@ -1,4 +1,0 @@
-2023-01-31 11:08:46,747 <INFO>: 服务器已开启, ip:0.0.0.0 port:37202
-2023-01-31 11:08:49,667 <INFO>: 客户端: ('192.168.1.103', 42488) 链接, 分派线程 Englite3TCP_1
-2023-01-31 11:08:49,672 <INFO>: Englite3TCP_1 addr=('192.168.1.103', 42488) username=whis 身份验证成功
-2023-01-31 11:08:49,672 <INFO>: Englite3TCP_1 addr=('192.168.1.103', 42488) wanna download database, name = civi.db

@@ -152,6 +152,25 @@ public class Functions {
         }
     }
 
+    public static void uploadDatabase(Context context, String dbname){
+        try{
+            AddrInfo ai = getCloudAddr(context);
+            UserInfo ui = getUserInfo(context);
+            if(ai == null){
+                Toast.makeText(context, "服务器配置读取失败", Toast.LENGTH_SHORT).show();
+            }else if(ui == null){
+                Toast.makeText(context, "用户信息读取失败", Toast.LENGTH_SHORT).show();
+            }else{
+                Tcp tcp = new Tcp(context, ai, ui);
+                String sta = tcp.upload_db(dbname);
+                Toast.makeText(context, sta, Toast.LENGTH_SHORT).show();
+            }
+        }catch (Exception e){
+            Log.e("at Os upload", e.getMessage());
+        }
+
+    }
+
     /*
     从本地数据库目录中获取本地拥有的词库列表
      */

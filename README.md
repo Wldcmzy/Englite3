@@ -58,5 +58,10 @@
 - [x] **词库快速制作工具**
 
   - 根据文件给出的单词英文对接有道翻译接口制作: 见[Englite2](https://github.com/Wldcmzy/Mess-Mess/tree/master/EngLite2)
+- 根据文件给出的单词全部信息制作: 见[Englite2](https://github.com/Wldcmzy/Mess-Mess/tree/master/EngLite2)（未完成）
 
-  - 根据文件给出的单词全部信息制作: 见[Englite2](https://github.com/Wldcmzy/Mess-Mess/tree/master/EngLite2)（未完成）
+
+
+## 已知BUG解决情况
+
+- [ ] **运行客户端上传词库功能后，服务器收到的词库会少几个**
