@@ -31,7 +31,7 @@ public class DbOperator {
     /*
     向WORD表中增加一个单词
      */
-    public long addOneWord(Word word){
+    public void addOneWord(Word word){
         ContentValues values = new ContentValues();
         values.put(DbOpenHelper.EN, word.getEn());
         values.put(DbOpenHelper.CN, word.getCn());
@@ -40,8 +40,7 @@ public class DbOperator {
         values.put(DbOpenHelper.LEVEL, word.getLv());
         values.put(DbOpenHelper.E, word.getE());
         values.put(DbOpenHelper.FLAG, word.getFlag());
-        long ret = db.insert(DbOpenHelper.WORD_TABLE_NAME, null, values);
-        return ret;
+        db.insert(DbOpenHelper.WORD_TABLE_NAME, null, values);
     }
 
     /*

@@ -1,0 +1,51 @@
+2023-02-05 12:35:50,304 <INFO>: 服务器已开启, ip:0.0.0.0 port:37202
+2023-02-05 12:36:12,114 <INFO>: 客户端: ('192.168.1.103', 56302) 链接, 分派线程 Englite3TCP_1
+2023-02-05 12:36:12,272 <INFO>: Englite3TCP_1 addr=('192.168.1.103', 56302) username=whis 身份验证成功
+2023-02-05 12:36:12,274 <INFO>: Englite3TCP_1 addr=('192.168.1.103', 56302) query database list.
+2023-02-05 12:36:12,277 <INFO>: 线程Englite3TCP_1socket已关闭. 且线程结束
+2023-02-05 12:36:13,995 <INFO>: 客户端: ('192.168.1.103', 56304) 链接, 分派线程 Englite3TCP_2
+2023-02-05 12:36:14,151 <INFO>: Englite3TCP_2 addr=('192.168.1.103', 56304) username=whis 身份验证成功
+2023-02-05 12:36:14,153 <INFO>: Englite3TCP_2 addr=('192.168.1.103', 56304) wanna download database, name = 2023红宝书中英+有道.db
+2023-02-05 12:36:14,405 <INFO>: database 2023红宝书中英+有道.db 传输完成.
+2023-02-05 12:36:40,753 <INFO>: 客户端: ('192.168.1.103', 56330) 链接, 分派线程 Englite3TCP_3
+2023-02-05 12:36:41,092 <INFO>: Englite3TCP_3 addr=('192.168.1.103', 56330) username=whis 身份验证成功
+2023-02-05 12:36:41,093 <INFO>: Englite3TCP_3 addr=('192.168.1.103', 56330) wanna upload database, name = 2023红宝书中英+有道.db
+2023-02-05 12:36:41,262 <INFO>: recreate ok
+2023-02-05 12:36:41,809 <INFO>: Englite3TCP_3 database upload finished dbname = 2023红宝书中英+有道.db
+2023-02-05 12:39:20,061 <INFO>: 客户端: ('192.168.1.103', 56480) 链接, 分派线程 Englite3TCP_4
+2023-02-05 12:39:20,233 <INFO>: Englite3TCP_4 addr=('192.168.1.103', 56480) username=whis 身份验证成功
+2023-02-05 12:39:20,235 <INFO>: Englite3TCP_4 addr=('192.168.1.103', 56480) query database list.
+2023-02-05 12:39:20,238 <INFO>: 线程Englite3TCP_4socket已关闭. 且线程结束
+2023-02-05 12:39:22,716 <INFO>: 客户端: ('192.168.1.103', 56482) 链接, 分派线程 Englite3TCP_5
+2023-02-05 12:39:22,798 <INFO>: Englite3TCP_5 addr=('192.168.1.103', 56482) username=whis 身份验证成功
+2023-02-05 12:39:22,799 <INFO>: Englite3TCP_5 addr=('192.168.1.103', 56482) wanna download database, name = 2023红宝书中英+有道.db
+2023-02-05 12:39:23,030 <INFO>: database 2023红宝书中英+有道.db 传输完成.
+2023-02-05 12:42:42,400 <INFO>: 客户端: ('192.168.1.103', 56870) 链接, 分派线程 Englite3TCP_6
+2023-02-05 12:42:42,551 <INFO>: Englite3TCP_6 addr=('192.168.1.103', 56870) username=whis 身份验证成功
+2023-02-05 12:42:42,552 <INFO>: Englite3TCP_6 addr=('192.168.1.103', 56870) query database list.
+2023-02-05 12:42:42,552 <INFO>: 线程Englite3TCP_6socket已关闭. 且线程结束
+2023-02-05 12:42:51,821 <INFO>: 客户端: ('192.168.1.103', 56874) 链接, 分派线程 Englite3TCP_7
+2023-02-05 12:42:52,001 <INFO>: Englite3TCP_7 addr=('192.168.1.103', 56874) username=whis 身份验证成功
+2023-02-05 12:42:52,002 <INFO>: Englite3TCP_7 addr=('192.168.1.103', 56874) wanna download database, name = 2023红宝书中英+有道.db
+2023-02-05 12:42:52,253 <INFO>: database 2023红宝书中英+有道.db 传输完成.
+2023-02-05 12:45:10,048 <INFO>: 客户端: ('192.168.1.103', 56986) 链接, 分派线程 Englite3TCP_8
+2023-02-05 12:45:10,221 <INFO>: Englite3TCP_8 addr=('192.168.1.103', 56986) username=whis 身份验证成功
+2023-02-05 12:45:10,222 <INFO>: Englite3TCP_8 addr=('192.168.1.103', 56986) query database list.
+2023-02-05 12:45:10,225 <INFO>: 线程Englite3TCP_8socket已关闭. 且线程结束
+2023-02-05 12:45:18,105 <INFO>: 客户端: ('192.168.1.103', 57008) 链接, 分派线程 Englite3TCP_9
+2023-02-05 12:45:18,273 <INFO>: Englite3TCP_9 addr=('192.168.1.103', 57008) username=whis 身份验证成功
+2023-02-05 12:45:18,274 <INFO>: Englite3TCP_9 addr=('192.168.1.103', 57008) wanna download database, name = 2023红宝书中英+有道.db
+2023-02-05 12:45:18,524 <INFO>: database 2023红宝书中英+有道.db 传输完成.
+2023-02-05 12:47:09,645 <INFO>: 客户端: ('192.168.1.103', 57088) 链接, 分派线程 Englite3TCP_10
+2023-02-05 12:47:09,820 <INFO>: Englite3TCP_10 addr=('192.168.1.103', 57088) username=whis 身份验证成功
+2023-02-05 12:47:09,821 <INFO>: Englite3TCP_10 addr=('192.168.1.103', 57088) query database list.
+2023-02-05 12:47:09,824 <INFO>: 线程Englite3TCP_10socket已关闭. 且线程结束
+2023-02-05 12:47:11,839 <INFO>: 客户端: ('192.168.1.103', 57110) 链接, 分派线程 Englite3TCP_11
+2023-02-05 12:47:12,007 <INFO>: Englite3TCP_11 addr=('192.168.1.103', 57110) username=whis 身份验证成功
+2023-02-05 12:47:12,009 <INFO>: Englite3TCP_11 addr=('192.168.1.103', 57110) wanna download database, name = 2023红宝书中英+有道.db
+2023-02-05 12:47:12,249 <INFO>: database 2023红宝书中英+有道.db 传输完成.
+2023-02-05 12:47:44,514 <INFO>: 客户端: ('192.168.1.103', 57118) 链接, 分派线程 Englite3TCP_12
+2023-02-05 12:47:44,749 <INFO>: Englite3TCP_12 addr=('192.168.1.103', 57118) username=whis 身份验证成功
+2023-02-05 12:47:44,750 <INFO>: Englite3TCP_12 addr=('192.168.1.103', 57118) wanna upload database, name = 2023红宝书中英+有道.db
+2023-02-05 12:47:44,919 <INFO>: recreate ok
+2023-02-05 12:47:45,510 <INFO>: Englite3TCP_12 database upload finished dbname = 2023红宝书中英+有道.db

@@ -1,0 +1,36 @@
+2023-06-18 16:49:52,593 <INFO>: 服务器已开启, ip:0.0.0.0 port:37202
+2023-06-18 16:49:55,283 <INFO>: 客户端: ('192.168.1.102', 57712) 链接, 分派线程 Englite3TCP_1
+2023-06-18 16:49:55,430 <INFO>: Englite3TCP_1 addr=('192.168.1.102', 57712) username=whis 身份验证成功
+2023-06-18 16:49:55,432 <INFO>: Englite3TCP_1 addr=('192.168.1.102', 57712) wanna upload database, name = undertale.db
+2023-06-18 16:49:55,589 <INFO>: recreate ok
+2023-06-18 16:49:55,695 <INFO>: Englite3TCP_1 database upload finished dbname = undertale.db
+2023-06-18 16:49:59,365 <INFO>: 客户端: ('192.168.1.102', 57720) 链接, 分派线程 Englite3TCP_2
+2023-06-18 16:49:59,597 <INFO>: Englite3TCP_2 addr=('192.168.1.102', 57720) username=whis 身份验证成功
+2023-06-18 16:49:59,599 <INFO>: Englite3TCP_2 addr=('192.168.1.102', 57720) wanna upload database, name = undertale.db
+2023-06-18 16:49:59,840 <INFO>: recreate ok
+2023-06-18 16:50:00,024 <INFO>: Englite3TCP_2 database upload finished dbname = undertale.db
+2023-06-18 16:50:04,683 <INFO>: 客户端: ('192.168.1.102', 51534) 链接, 分派线程 Englite3TCP_3
+2023-06-18 16:50:04,806 <INFO>: Englite3TCP_3 addr=('192.168.1.102', 51534) username=whis 身份验证成功
+2023-06-18 16:50:04,808 <INFO>: Englite3TCP_3 addr=('192.168.1.102', 51534) wanna upload database, name = undertale.db
+2023-06-18 16:50:04,965 <INFO>: recreate ok
+2023-06-18 16:50:05,049 <INFO>: Englite3TCP_3 database upload finished dbname = undertale.db
+2023-06-18 16:50:07,718 <INFO>: 客户端: ('192.168.1.102', 51536) 链接, 分派线程 Englite3TCP_4
+2023-06-18 16:50:07,815 <INFO>: Englite3TCP_4 addr=('192.168.1.102', 51536) username=whis 身份验证成功
+2023-06-18 16:50:07,816 <INFO>: Englite3TCP_4 addr=('192.168.1.102', 51536) wanna upload database, name = undertale.db
+2023-06-18 16:50:07,974 <INFO>: recreate ok
+2023-06-18 16:50:08,158 <INFO>: Englite3TCP_4 database upload finished dbname = undertale.db
+2023-06-18 16:50:11,441 <INFO>: 客户端: ('192.168.1.102', 39982) 链接, 分派线程 Englite3TCP_5
+2023-06-18 16:50:11,654 <INFO>: Englite3TCP_5 addr=('192.168.1.102', 39982) username=whis 身份验证成功
+2023-06-18 16:50:11,655 <INFO>: Englite3TCP_5 addr=('192.168.1.102', 39982) wanna upload database, name = undertale.db
+2023-06-18 16:50:11,812 <INFO>: recreate ok
+2023-06-18 16:50:11,897 <INFO>: Englite3TCP_5 database upload finished dbname = undertale.db
+2023-06-18 16:50:27,398 <INFO>: 客户端: ('192.168.1.102', 49988) 链接, 分派线程 Englite3TCP_6
+2023-06-18 16:50:27,509 <INFO>: Englite3TCP_6 addr=('192.168.1.102', 49988) username=whis 身份验证成功
+2023-06-18 16:50:27,510 <INFO>: Englite3TCP_6 addr=('192.168.1.102', 49988) wanna upload database, name = undertale.db
+2023-06-18 16:50:27,658 <INFO>: recreate ok
+2023-06-18 16:50:27,743 <INFO>: Englite3TCP_6 database upload finished dbname = undertale.db
+2023-06-18 16:50:39,863 <INFO>: 客户端: ('192.168.1.102', 60086) 链接, 分派线程 Englite3TCP_7
+2023-06-18 16:50:39,963 <INFO>: Englite3TCP_7 addr=('192.168.1.102', 60086) username=whis 身份验证成功
+2023-06-18 16:50:39,964 <INFO>: Englite3TCP_7 addr=('192.168.1.102', 60086) wanna upload database, name = cat6-full.db
+2023-06-18 16:50:40,244 <INFO>: recreate ok
+2023-06-18 16:50:40,617 <INFO>: Englite3TCP_7 database upload finished dbname = cat6-full.db

@@ -290,6 +290,7 @@ public class Tcp {
             @Override
             public void run() {
                 List<String> revlst = new ArrayList<String>();
+                List<Word> wordlist = new ArrayList<Word>();
 //                Looper.prepare();
                 try {
                     Socket client = newClient(ai.getHost(), ai.getPort());
@@ -314,8 +315,7 @@ public class Tcp {
                         throw new ServerDenyException("未通过身份验证,服务器拒绝服务");
                     } else {
                         String remain = "";
-                        DbOperator dop = new DbOperator(context, Config.Dbprefix + dbname);
-                        dop.reCreateWordTable();
+
                         while (true) {
                             rev = recv(client, nextMod);
                             if (rev.substring(rev.length() - Config.END.length(), rev.length()).equals(Config.END)) {
@@ -323,6 +323,7 @@ public class Tcp {
                                 exit = true;
                                 Log.d("safe", "can break");
                             }
+//                            int cc = 0;
                             boolean noendTag = false;
                             if (!(exit && rev.equals(""))) {
                                 if (rev.substring(rev.length() - Config.END.length(), rev.length()).equals(Config.SEP)) {
@@ -343,7 +344,12 @@ public class Tcp {
                                             remain = revs[i];
                                         }else{
                                             String[] wordinfo = revs[i].split(Config.WORDSEP);
-                                            long z = dop.addOneWord(new Word(wordinfo));
+//                                            dop.addOneWord(new Word(wordinfo));
+                                            wordlist.add(new Word(wordinfo));
+//                                            cc += 1;
+//                                            if(cc % 1000 == 1){
+//                                                Log.e("sdfsdfsd", cc + "");
+//                                            }
                                         }
                                     }
                                 }
@@ -351,6 +357,11 @@ public class Tcp {
                             if (exit) {
 //                            Toast.makeText(context, "传输完成", Toast.LENGTH_SHORT).show();
                                 revlst.add(0, Tcp.transOK);
+                                DbOperator dop = new DbOperator(context, Config.Dbprefix + dbname);
+                                dop.reCreateWordTable();
+                                for(int i=0; i<wordlist.size(); i++){
+                                    dop.addOneWord(wordlist.get(i));
+                                }
                                 break;
                             }
                         }

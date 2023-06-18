@@ -1,0 +1,6 @@
+2023-06-18 16:28:09,983 <INFO>: 服务器已开启, ip:0.0.0.0 port:37202
+2023-06-18 16:28:11,391 <INFO>: 客户端: ('192.168.1.102', 33530) 链接, 分派线程 Englite3TCP_1
+2023-06-18 16:28:11,576 <INFO>: Englite3TCP_1 addr=('192.168.1.102', 33530) username=whis 身份验证成功
+2023-06-18 16:28:11,579 <INFO>: Englite3TCP_1 addr=('192.168.1.102', 33530) wanna upload database, name = undertale.db
+2023-06-18 16:28:11,735 <INFO>: recreate ok
+2023-06-18 16:28:12,185 <INFO>: Englite3TCP_1 database upload finished dbname = undertale.db

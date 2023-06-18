@@ -1,0 +1,31 @@
+2023-06-18 16:51:06,669 <INFO>: 服务器已开启, ip:0.0.0.0 port:37202
+2023-06-18 16:51:08,710 <INFO>: 客户端: ('192.168.1.102', 60954) 链接, 分派线程 Englite3TCP_1
+2023-06-18 16:51:08,790 <INFO>: Englite3TCP_1 addr=('192.168.1.102', 60954) username=whis 身份验证成功
+2023-06-18 16:51:08,791 <INFO>: Englite3TCP_1 addr=('192.168.1.102', 60954) wanna upload database, name = cat6-full.db
+2023-06-18 16:51:08,948 <INFO>: recreate ok
+2023-06-18 16:51:09,244 <INFO>: Englite3TCP_1 database upload finished dbname = cat6-full.db
+2023-06-18 16:51:12,741 <INFO>: 客户端: ('192.168.1.102', 52724) 链接, 分派线程 Englite3TCP_2
+2023-06-18 16:51:12,834 <INFO>: Englite3TCP_2 addr=('192.168.1.102', 52724) username=whis 身份验证成功
+2023-06-18 16:51:12,836 <INFO>: Englite3TCP_2 addr=('192.168.1.102', 52724) wanna upload database, name = cat6-full.db
+2023-06-18 16:51:12,993 <INFO>: recreate ok
+2023-06-18 16:51:13,222 <INFO>: Englite3TCP_2 database upload finished dbname = cat6-full.db
+2023-06-18 16:51:29,757 <INFO>: 客户端: ('192.168.1.102', 45934) 链接, 分派线程 Englite3TCP_3
+2023-06-18 16:51:29,935 <INFO>: Englite3TCP_3 addr=('192.168.1.102', 45934) username=whis 身份验证成功
+2023-06-18 16:51:29,937 <INFO>: Englite3TCP_3 addr=('192.168.1.102', 45934) wanna upload database, name = cat6-full.db
+2023-06-18 16:51:30,095 <INFO>: recreate ok
+2023-06-18 16:51:30,379 <INFO>: Englite3TCP_3 database upload finished dbname = cat6-full.db
+2023-06-18 16:51:40,416 <INFO>: 客户端: ('192.168.1.102', 53000) 链接, 分派线程 Englite3TCP_4
+2023-06-18 16:51:40,509 <INFO>: Englite3TCP_4 addr=('192.168.1.102', 53000) username=whis 身份验证成功
+2023-06-18 16:51:40,509 <INFO>: Englite3TCP_4 addr=('192.168.1.102', 53000) wanna upload database, name = cat6-full.db
+2023-06-18 16:51:40,669 <INFO>: recreate ok
+2023-06-18 16:51:40,942 <INFO>: Englite3TCP_4 database upload finished dbname = cat6-full.db
+2023-06-18 16:51:43,415 <INFO>: 客户端: ('192.168.1.102', 59952) 链接, 分派线程 Englite3TCP_5
+2023-06-18 16:51:43,568 <INFO>: Englite3TCP_5 addr=('192.168.1.102', 59952) username=whis 身份验证成功
+2023-06-18 16:51:43,570 <INFO>: Englite3TCP_5 addr=('192.168.1.102', 59952) wanna upload database, name = cat6-full.db
+2023-06-18 16:51:43,726 <INFO>: recreate ok
+2023-06-18 16:51:43,978 <INFO>: Englite3TCP_5 database upload finished dbname = cat6-full.db
+2023-06-18 16:51:49,555 <INFO>: 客户端: ('192.168.1.102', 59962) 链接, 分派线程 Englite3TCP_6
+2023-06-18 16:51:49,660 <INFO>: Englite3TCP_6 addr=('192.168.1.102', 59962) username=whis 身份验证成功
+2023-06-18 16:51:49,662 <INFO>: Englite3TCP_6 addr=('192.168.1.102', 59962) wanna upload database, name = cat6-full.db
+2023-06-18 16:51:49,818 <INFO>: recreate ok
+2023-06-18 16:51:50,125 <INFO>: Englite3TCP_6 database upload finished dbname = cat6-full.db

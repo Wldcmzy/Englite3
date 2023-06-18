@@ -148,21 +148,14 @@ class Server:
             else:
                 conn = opendb(dbpath / dbname)
                 words = select_all(conn)
-                for en, cn, pron, combo, level, e, sta in words:
-                    data = ''
-                    data += en + self.WORDSEP
-                    data += cn + self.WORDSEP
-                    data += pron + self.WORDSEP
-                    data += combo + self.WORDSEP
-                    data += str(level) + self.WORDSEP
-                    data += str(e) + self.WORDSEP
-                    data += str(sta)
-                    data += self.SEP
+                for en, cn, pron, combo, level, e, flag in words:
+                    data = f'{en}{self.WORDSEP}{cn}{self.WORDSEP}{pron}{self.WORDSEP}{combo}{self.WORDSEP}{level}{self.WORDSEP}{e}{self.WORDSEP}{flag}{self.SEP}'
 
                     self.Csend(sk, data, self.AESMOD)
 
             self.Csend(sk, self.END, self.AESMOD)
             sk.close()
+            logger.info(f'database {dbname} 传输完成.')
         except Exception as e:
             format_error(e, f'线程名:{threading.current_thread().name}')
 
@@ -190,7 +183,7 @@ class Server:
                     can_exit = True
                     data = data[ : -len(self.END)]
                 
-                if not (data != '' and can_exit):
+                if data != '':
                     if data.endswith(self.SEP):
                         data = data[ : -len(self.SEP)]
                         no_end = False
@@ -210,6 +203,7 @@ class Server:
                             lst.append((en, cn, pron, combo, level, e, flag))
 
                 if can_exit:
+                    print('len lst =', len(lst))
                     for each in lst:
                         addone(c, *each)
                         # print(each[0])

@@ -1,0 +1,9 @@
+2023-05-07 11:40:17,799 <INFO>: 服务器已开启, ip:0.0.0.0 port:37202
+2023-05-07 11:40:18,532 <INFO>: 客户端: ('192.168.1.101', 48920) 链接, 分派线程 Englite3TCP_1
+2023-05-07 11:40:18,784 <INFO>: Englite3TCP_1 addr=('192.168.1.101', 48920) username=whis 身份验证成功
+2023-05-07 11:40:18,784 <INFO>: Englite3TCP_1 addr=('192.168.1.101', 48920) query database list.
+2023-05-07 11:40:18,786 <INFO>: 线程Englite3TCP_1socket已关闭. 且线程结束
+2023-05-07 11:40:21,342 <INFO>: 客户端: ('192.168.1.101', 48932) 链接, 分派线程 Englite3TCP_2
+2023-05-07 11:40:21,529 <INFO>: Englite3TCP_2 addr=('192.168.1.101', 48932) username=whis 身份验证成功
+2023-05-07 11:40:21,530 <INFO>: Englite3TCP_2 addr=('192.168.1.101', 48932) wanna download database, name = HollowKnightSilkNEVER.db
+2023-05-07 11:40:23,018 <INFO>: database HollowKnightSilkNEVER.db 传输完成.

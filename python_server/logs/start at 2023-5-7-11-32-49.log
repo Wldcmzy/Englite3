@@ -1,0 +1,21 @@
+2023-05-07 11:32:49,473 <INFO>: 服务器已开启, ip:0.0.0.0 port:37202
+2023-05-07 11:33:07,227 <INFO>: 客户端: ('192.168.1.101', 42372) 链接, 分派线程 Englite3TCP_1
+2023-05-07 11:33:07,408 <INFO>: Englite3TCP_1 addr=('192.168.1.101', 42372) username=whis 身份验证成功
+2023-05-07 11:33:07,409 <INFO>: Englite3TCP_1 addr=('192.168.1.101', 42372) query database list.
+2023-05-07 11:33:07,488 <INFO>: 线程Englite3TCP_1socket已关闭. 且线程结束
+2023-05-07 11:33:12,633 <INFO>: 客户端: ('192.168.1.101', 42378) 链接, 分派线程 Englite3TCP_2
+2023-05-07 11:33:12,920 <INFO>: Englite3TCP_2 addr=('192.168.1.101', 42378) username=whis 身份验证成功
+2023-05-07 11:33:12,921 <INFO>: Englite3TCP_2 addr=('192.168.1.101', 42378) wanna download database, name = HollowKnightSilkNEVER.db
+2023-05-07 11:33:31,401 <INFO>: 客户端: ('192.168.1.101', 55032) 链接, 分派线程 Englite3TCP_3
+2023-05-07 11:33:31,556 <INFO>: Englite3TCP_3 addr=('192.168.1.101', 55032) username=whis 身份验证成功
+2023-05-07 11:33:31,557 <INFO>: Englite3TCP_3 addr=('192.168.1.101', 55032) query database list.
+2023-05-07 11:33:31,561 <INFO>: 线程Englite3TCP_3socket已关闭. 且线程结束
+2023-05-07 11:33:35,809 <INFO>: 客户端: ('192.168.1.101', 57134) 链接, 分派线程 Englite3TCP_4
+2023-05-07 11:33:35,926 <INFO>: Englite3TCP_4 addr=('192.168.1.101', 57134) username=whis 身份验证成功
+2023-05-07 11:33:35,927 <INFO>: Englite3TCP_4 addr=('192.168.1.101', 57134) wanna download database, name = undertale.db
+2023-05-07 11:33:35,940 <INFO>: database undertale.db 传输完成.
+2023-05-07 11:33:37,964 <INFO>: 客户端: ('192.168.1.101', 57140) 链接, 分派线程 Englite3TCP_5
+2023-05-07 11:33:38,189 <INFO>: Englite3TCP_5 addr=('192.168.1.101', 57140) username=whis 身份验证成功
+2023-05-07 11:33:38,191 <INFO>: Englite3TCP_5 addr=('192.168.1.101', 57140) wanna download database, name = HollowKnightSilkNEVER.db
+2023-05-07 11:33:40,241 <INFO>: database HollowKnightSilkNEVER.db 传输完成.
+2023-05-07 11:33:41,148 <ERROR>: <class 'ConnectionResetError'> [WinError 10054] 远程主机强迫关闭了一个现有的连接。 | extra:线程名:Englite3TCP_2
