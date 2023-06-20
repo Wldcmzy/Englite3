@@ -1,30 +1,21 @@
 package com.englite3.logic;
 
 import android.content.Context;
-import android.os.Looper;
 import android.os.SystemClock;
-import android.provider.Telephony;
 import android.util.Log;
-import android.widget.Toast;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ConnectException;
-import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketAddress;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.FutureTask;
 
 import com.englite3.Config;
 import com.englite3.database.DbOperator;
-import com.englite3.logic.Rsa;
 import com.englite3.utils.AddrInfo;
 import com.englite3.utils.UserInfo;
 import com.englite3.utils.Word;
@@ -45,7 +36,8 @@ public class Tcp {
     private int firstMod, nextMod;
     public static final String charset = "utf-8";
 
-    private int timeoutLim = 2000;
+    private int socket_timeoutLim = 2000;
+//    private int thread_timeoutLim = 30000, thread_check_delay = 200;
     private String pubkey;
     private String aeskey;
     private AddrInfo ai;
@@ -107,7 +99,7 @@ public class Tcp {
         try{
             SocketAddress address = new InetSocketAddress(host, Integer.parseInt(port));
             client=new Socket();
-            client.connect(address, this.timeoutLim);
+            client.connect(address, this.socket_timeoutLim);
             Log.d("at TCP", "client ok");
         }catch (Exception e){
             Log.e("at TCP e",e.getMessage());
@@ -318,15 +310,37 @@ public class Tcp {
 
                         while (true) {
                             rev = recv(client, nextMod);
+                            //-------------XYZ----------------------------------
+//                          // 已经开始在石山上堆石了
+                            // 这段if语句的作用是：解决报文中Config.SEP 、 Config.END 被切开的问题
+                            if (rev.length() < Config.END.length()){
+                                Log.e("info", rev);
+                                if (remain != "") {
+                                    String temp_x = remain + rev;
+                                    if (temp_x.length() >= Config.END.length()) {
+                                        if (temp_x.substring(temp_x.length() - Config.END.length(), temp_x.length()).equals(Config.END)) {
+                                            exit = true;
+                                        }
+                                    }
+                                }
+                                if (exit == false){
+                                    remain = remain + rev;
+                                    continue;
+                                }
+                            }else
+                                //-----------------------XYZ---------------------------------
                             if (rev.substring(rev.length() - Config.END.length(), rev.length()).equals(Config.END)) {
                                 rev = rev.substring(0, rev.length() - Config.END.length());
                                 exit = true;
                                 Log.d("safe", "can break");
                             }
+                            Log.d("safe", "ok1");
 //                            int cc = 0;
                             boolean noendTag = false;
-                            if (!(exit && rev.equals(""))) {
-                                if (rev.substring(rev.length() - Config.END.length(), rev.length()).equals(Config.SEP)) {
+                            if (!(rev.equals(""))) {
+                                if (rev.length() < Config.SEP.length()){
+                                    noendTag = true;
+                                }else if (rev.substring(rev.length() - Config.END.length(), rev.length()).equals(Config.SEP)) {
                                     rev = rev.substring(0, rev.length() - Config.SEP.length());
                                     noendTag = false;
                                 }else{
@@ -336,15 +350,17 @@ public class Tcp {
                                     rev = remain + rev;
                                     remain = "";
                                 }
-
+                                Log.d("safe", "ok2");
                                 String[] revs = rev.split(Config.SEP);
                                 for (int i = 0; i < revs.length; i++) {
                                     if (revs[i].length() > 0) {
-                                        if(noendTag && i == revs.length - 1){
+                                        if(noendTag && i == (revs.length - 1)){
                                             remain = revs[i];
                                         }else{
+                                            Log.d("safe", "ok3");
                                             String[] wordinfo = revs[i].split(Config.WORDSEP);
 //                                            dop.addOneWord(new Word(wordinfo));
+                                            Log.d("safe", "ok4");
                                             wordlist.add(new Word(wordinfo));
 //                                            cc += 1;
 //                                            if(cc % 1000 == 1){
@@ -354,6 +370,7 @@ public class Tcp {
                                     }
                                 }
                             }
+                            Log.d("safe", "ok5");
                             if (exit) {
 //                            Toast.makeText(context, "传输完成", Toast.LENGTH_SHORT).show();
                                 revlst.add(0, Tcp.transOK);
@@ -373,13 +390,13 @@ public class Tcp {
                 } catch (ConnectException e) {
 //                    Toast.makeText(context, "链接异常", Toast.LENGTH_SHORT).show();
                     revlst.add(0, Tcp.linkERROR);
-                    Log.e("at TCP_downloadDB", e.getMessage());
+                    Log.e("at TCP_downloadDB err01", e.getMessage());
                 } catch (ServerDenyException e) {
                     revlst.add(0, Tcp.verfyDENY);
                 } catch (Exception e) {
 //                    Toast.makeText(context, "发生错误", Toast.LENGTH_SHORT).show();
                     revlst.add(0, Tcp.unknowERROR);
-                    Log.e("at TCP_downloadDB", e.getMessage());
+                    Log.e("at TCP_downloadDB err02", e.getMessage() + " " + e.toString());
                 }
 //                Looper.loop();
                 Tcp.setRecvs(revlst);
@@ -432,6 +449,7 @@ public class Tcp {
                         DbOperator dop = new DbOperator(context, Config.Dbprefix + dbname);
                         List<Word> wordlist = dop.selectAll();
                         Word w;
+                        int cnt = 0;
                         for(int i=0; i<wordlist.size(); i++) {
                             w = wordlist.get(i);
                             String s = "";
@@ -445,6 +463,10 @@ public class Tcp {
                             s += Config.SEP;
 
                             send(client, s, nextMod);
+                            if(cnt >= 100){
+                                cnt -= 100;
+                                SystemClock.sleep(10);
+                            }
                         }
                         send(client, Config.END, nextMod);
                     }

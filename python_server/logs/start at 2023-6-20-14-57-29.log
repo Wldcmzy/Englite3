@@ -1,0 +1,17 @@
+2023-06-20 14:57:29,296 <INFO>: 服务器已开启, ip:0.0.0.0 port:37202
+2023-06-20 14:57:39,469 <INFO>: 客户端: ('192.168.1.102', 41784) 链接, 分派线程 Englite3TCP_1
+2023-06-20 14:57:39,685 <INFO>: Englite3TCP_1 addr=('192.168.1.102', 41784) username=whis 身份验证成功
+2023-06-20 14:57:39,687 <INFO>: Englite3TCP_1 addr=('192.168.1.102', 41784) query database list.
+2023-06-20 14:57:39,745 <INFO>: 线程Englite3TCP_1socket已关闭. 且线程结束
+2023-06-20 14:57:42,227 <INFO>: 客户端: ('192.168.1.102', 50134) 链接, 分派线程 Englite3TCP_2
+2023-06-20 14:57:42,402 <INFO>: Englite3TCP_2 addr=('192.168.1.102', 50134) username=whis 身份验证成功
+2023-06-20 14:57:42,402 <INFO>: Englite3TCP_2 addr=('192.168.1.102', 50134) wanna download database, name = civi.db
+2023-06-20 14:57:42,436 <INFO>: database civi.db 传输完成.
+2023-06-20 14:59:28,266 <INFO>: 客户端: ('192.168.1.102', 59548) 链接, 分派线程 Englite3TCP_3
+2023-06-20 14:59:28,410 <INFO>: Englite3TCP_3 addr=('192.168.1.102', 59548) username=whis 身份验证成功
+2023-06-20 14:59:28,411 <INFO>: Englite3TCP_3 addr=('192.168.1.102', 59548) query database list.
+2023-06-20 14:59:28,415 <INFO>: 线程Englite3TCP_3socket已关闭. 且线程结束
+2023-06-20 14:59:50,614 <INFO>: 客户端: ('192.168.1.102', 39072) 链接, 分派线程 Englite3TCP_4
+2023-06-20 14:59:50,712 <INFO>: Englite3TCP_4 addr=('192.168.1.102', 39072) username=whis 身份验证成功
+2023-06-20 14:59:50,714 <INFO>: Englite3TCP_4 addr=('192.168.1.102', 39072) wanna download database, name = civi.db
+2023-06-20 14:59:50,760 <INFO>: database civi.db 传输完成.

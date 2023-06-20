@@ -1,5 +1,6 @@
 package com.englite3.activities;
 
+import static com.englite3.logic.Functions.deleteOneDatabase;
 import static com.englite3.logic.Functions.randomAddFlagWords;
 import static com.englite3.logic.Functions.uploadDatabase;
 
@@ -93,6 +94,9 @@ public class WordDatabaseInfo extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         int num, mn, mx;
         switch(v.getId()){
+            case R.id.db_delete:
+                confirm(R.id.db_delete, 0);
+                break;
             case R.id.db_export:
                 break;
             case R.id.db_upload:
@@ -123,6 +127,9 @@ public class WordDatabaseInfo extends AppCompatActivity implements View.OnClickL
         AlertDialog.Builder builder = new AlertDialog.Builder(WordDatabaseInfo.this);
         String query = "";
         switch (id){
+            case R.id.db_delete:
+                query = "你确定要把当前词库" + dbname + "删除吗?";
+                break;
             case R.id.add_flagwords:
                 query = "你希望再把" + arg + "个加入规划, 是否继续?";
                 break;
@@ -138,6 +145,12 @@ public class WordDatabaseInfo extends AppCompatActivity implements View.OnClickL
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 switch(id){
+                                    case R.id.db_delete:
+                                        deleteOneDatabase(WordDatabaseInfo.this, dbname);
+//                                        Intent intent = new Intent(WordDatabaseInfo.this, Main.class);
+//                                        startActivityForResult(intent, 0);
+                                        WordDatabaseInfo.this.finish();
+                                        break;
                                     case R.id.add_flagwords:
                                         randomAddFlagWords(WordDatabaseInfo.this, dop, arg);
                                         resetText();

@@ -30,9 +30,13 @@ public class Word {
         this.cn = wordarr[1];
         this.pron = wordarr[2];
         this.combo = wordarr[3];
+
         this.lv = Integer.parseInt(wordarr[4]);
+        Log.d("safe", "lv_ok");
         this.e = Integer.parseInt(wordarr[5]);
+        Log.d("safe", "e_ok");
         this.flag = Integer.parseInt(wordarr[6]);
+        Log.d("safe", "flag_ok");
 
 
         repeatRightTimes = 0;

@@ -2,6 +2,7 @@ import socket
 import threading
 import random
 import os
+import time
 from .utils.log import (
     logger,
     format_error,
@@ -130,9 +131,13 @@ class Server:
     def __query_db_list(self, sk: socket.socket):
         try:
             lst = get_db_list()
+            cnt = 0
             for each in lst:
                 data = self.ensure(each) + self.SEP
                 self.Csend(sk, data, self.AESMOD)
+                if cnt >= 100:
+                    cnt -= 100
+                    time.sleep(0.01)
             self.Csend(sk, self.END, self.AESMOD)
             sk.close()
             logger.info(f'线程{threading.current_thread().name}socket已关闭. 且线程结束')

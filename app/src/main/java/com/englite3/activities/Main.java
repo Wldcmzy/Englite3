@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -84,10 +85,13 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
 
 
     public void showDbName(){
+        SystemClock.sleep(100);
         List<String> lst = Functions.getDbName(this);
         if(lst == null || lst.size() <= 0) {
             Log.w("at main activity", "未检测到db文件");
             textview.setText("无词库");
+            adapter = new DatabaseNameAdapter(this, R.layout.list_member,lst);
+            listView.setAdapter(adapter);
         }else {
             adapter = new DatabaseNameAdapter(this, R.layout.list_member,lst);
             listView.setAdapter(adapter);

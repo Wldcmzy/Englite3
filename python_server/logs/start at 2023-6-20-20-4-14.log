@@ -1,0 +1,298 @@
+2023-06-20 20:04:14,806 <INFO>: 服务器已开启, ip:0.0.0.0 port:37202
+2023-06-20 20:04:37,849 <INFO>: 客户端: ('192.168.1.101', 57206) 链接, 分派线程 Englite3TCP_1
+2023-06-20 20:04:37,970 <INFO>: Englite3TCP_1 addr=('192.168.1.101', 57206) username=whis 身份验证成功
+2023-06-20 20:04:37,971 <INFO>: Englite3TCP_1 addr=('192.168.1.101', 57206) wanna upload database, name = HollowKnightSilkNEVER.db
+2023-06-20 20:04:38,263 <INFO>: recreate ok
+2023-06-20 20:04:39,078 <INFO>: Englite3TCP_1 database upload finished dbname = HollowKnightSilkNEVER.db
+2023-06-20 20:04:57,424 <INFO>: 客户端: ('192.168.1.101', 57506) 链接, 分派线程 Englite3TCP_2
+2023-06-20 20:04:57,575 <INFO>: Englite3TCP_2 addr=('192.168.1.101', 57506) username=whis 身份验证成功
+2023-06-20 20:04:57,577 <INFO>: Englite3TCP_2 addr=('192.168.1.101', 57506) query database list.
+2023-06-20 20:04:57,581 <INFO>: 线程Englite3TCP_2socket已关闭. 且线程结束
+2023-06-20 20:04:58,962 <INFO>: 客户端: ('192.168.1.101', 43120) 链接, 分派线程 Englite3TCP_3
+2023-06-20 20:04:59,109 <INFO>: Englite3TCP_3 addr=('192.168.1.101', 43120) username=whis 身份验证成功
+2023-06-20 20:04:59,110 <INFO>: Englite3TCP_3 addr=('192.168.1.101', 43120) wanna download database, name = cat6.db
+2023-06-20 20:04:59,337 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:05:02,812 <INFO>: 客户端: ('192.168.1.101', 43128) 链接, 分派线程 Englite3TCP_4
+2023-06-20 20:05:03,083 <INFO>: Englite3TCP_4 addr=('192.168.1.101', 43128) username=whis 身份验证成功
+2023-06-20 20:05:03,084 <INFO>: Englite3TCP_4 addr=('192.168.1.101', 43128) wanna download database, name = cat6.db
+2023-06-20 20:05:03,356 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:05:07,143 <INFO>: 客户端: ('192.168.1.101', 43140) 链接, 分派线程 Englite3TCP_5
+2023-06-20 20:05:07,295 <INFO>: Englite3TCP_5 addr=('192.168.1.101', 43140) username=whis 身份验证成功
+2023-06-20 20:05:07,296 <INFO>: Englite3TCP_5 addr=('192.168.1.101', 43140) wanna download database, name = cat6.db
+2023-06-20 20:05:07,512 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:05:09,763 <INFO>: 客户端: ('192.168.1.101', 53560) 链接, 分派线程 Englite3TCP_6
+2023-06-20 20:05:09,872 <INFO>: Englite3TCP_6 addr=('192.168.1.101', 53560) username=whis 身份验证成功
+2023-06-20 20:05:09,873 <INFO>: Englite3TCP_6 addr=('192.168.1.101', 53560) wanna download database, name = cat6.db
+2023-06-20 20:05:10,030 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:05:11,769 <INFO>: 客户端: ('192.168.1.101', 53568) 链接, 分派线程 Englite3TCP_7
+2023-06-20 20:05:11,870 <INFO>: Englite3TCP_7 addr=('192.168.1.101', 53568) username=whis 身份验证成功
+2023-06-20 20:05:11,871 <INFO>: Englite3TCP_7 addr=('192.168.1.101', 53568) wanna download database, name = cat6.db
+2023-06-20 20:05:12,020 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:05:22,172 <INFO>: 客户端: ('192.168.1.101', 44402) 链接, 分派线程 Englite3TCP_8
+2023-06-20 20:05:22,361 <INFO>: Englite3TCP_8 addr=('192.168.1.101', 44402) username=whis 身份验证成功
+2023-06-20 20:05:22,361 <INFO>: Englite3TCP_8 addr=('192.168.1.101', 44402) query database list.
+2023-06-20 20:05:22,362 <INFO>: 线程Englite3TCP_8socket已关闭. 且线程结束
+2023-06-20 20:05:25,075 <INFO>: 客户端: ('192.168.1.101', 44404) 链接, 分派线程 Englite3TCP_9
+2023-06-20 20:05:25,173 <INFO>: Englite3TCP_9 addr=('192.168.1.101', 44404) username=whis 身份验证成功
+2023-06-20 20:05:25,174 <INFO>: Englite3TCP_9 addr=('192.168.1.101', 44404) wanna download database, name = cat6.db
+2023-06-20 20:05:25,401 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:05:28,209 <INFO>: 客户端: ('192.168.1.101', 34180) 链接, 分派线程 Englite3TCP_10
+2023-06-20 20:05:28,459 <INFO>: Englite3TCP_10 addr=('192.168.1.101', 34180) username=whis 身份验证成功
+2023-06-20 20:05:28,460 <INFO>: Englite3TCP_10 addr=('192.168.1.101', 34180) wanna download database, name = cat6.db
+2023-06-20 20:05:28,631 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:11:51,294 <INFO>: 客户端: ('192.168.1.101', 52268) 链接, 分派线程 Englite3TCP_11
+2023-06-20 20:11:51,489 <INFO>: Englite3TCP_11 addr=('192.168.1.101', 52268) username=whis 身份验证成功
+2023-06-20 20:11:51,490 <INFO>: Englite3TCP_11 addr=('192.168.1.101', 52268) query database list.
+2023-06-20 20:11:51,493 <INFO>: 线程Englite3TCP_11socket已关闭. 且线程结束
+2023-06-20 20:11:53,376 <INFO>: 客户端: ('192.168.1.101', 52282) 链接, 分派线程 Englite3TCP_12
+2023-06-20 20:11:53,545 <INFO>: Englite3TCP_12 addr=('192.168.1.101', 52282) username=whis 身份验证成功
+2023-06-20 20:11:53,545 <INFO>: Englite3TCP_12 addr=('192.168.1.101', 52282) wanna download database, name = cat6.db
+2023-06-20 20:11:53,779 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:12:00,256 <INFO>: 客户端: ('192.168.1.101', 48870) 链接, 分派线程 Englite3TCP_13
+2023-06-20 20:12:00,491 <INFO>: Englite3TCP_13 addr=('192.168.1.101', 48870) username=whis 身份验证成功
+2023-06-20 20:12:00,492 <INFO>: Englite3TCP_13 addr=('192.168.1.101', 48870) wanna download database, name = cat6.db
+2023-06-20 20:12:00,610 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:12:04,570 <INFO>: 客户端: ('192.168.1.101', 48878) 链接, 分派线程 Englite3TCP_14
+2023-06-20 20:12:04,731 <INFO>: Englite3TCP_14 addr=('192.168.1.101', 48878) username=whis 身份验证成功
+2023-06-20 20:12:04,732 <INFO>: Englite3TCP_14 addr=('192.168.1.101', 48878) wanna download database, name = cat6.db
+2023-06-20 20:12:04,902 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:13:15,463 <INFO>: 客户端: ('192.168.1.101', 38214) 链接, 分派线程 Englite3TCP_15
+2023-06-20 20:13:15,637 <INFO>: Englite3TCP_15 addr=('192.168.1.101', 38214) username=whis 身份验证成功
+2023-06-20 20:13:15,639 <INFO>: Englite3TCP_15 addr=('192.168.1.101', 38214) query database list.
+2023-06-20 20:13:15,645 <INFO>: 线程Englite3TCP_15socket已关闭. 且线程结束
+2023-06-20 20:13:17,152 <INFO>: 客户端: ('192.168.1.101', 38222) 链接, 分派线程 Englite3TCP_16
+2023-06-20 20:13:17,323 <INFO>: Englite3TCP_16 addr=('192.168.1.101', 38222) username=whis 身份验证成功
+2023-06-20 20:13:17,324 <INFO>: Englite3TCP_16 addr=('192.168.1.101', 38222) wanna download database, name = cat6.db
+2023-06-20 20:13:17,480 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:15:46,413 <INFO>: 客户端: ('192.168.1.101', 45744) 链接, 分派线程 Englite3TCP_17
+2023-06-20 20:15:46,519 <INFO>: Englite3TCP_17 addr=('192.168.1.101', 45744) username=whis 身份验证成功
+2023-06-20 20:15:46,520 <INFO>: Englite3TCP_17 addr=('192.168.1.101', 45744) query database list.
+2023-06-20 20:15:46,524 <INFO>: 线程Englite3TCP_17socket已关闭. 且线程结束
+2023-06-20 20:15:47,924 <INFO>: 客户端: ('192.168.1.101', 45756) 链接, 分派线程 Englite3TCP_18
+2023-06-20 20:15:48,165 <INFO>: Englite3TCP_18 addr=('192.168.1.101', 45756) username=whis 身份验证成功
+2023-06-20 20:15:48,167 <INFO>: Englite3TCP_18 addr=('192.168.1.101', 45756) wanna download database, name = cat6.db
+2023-06-20 20:15:48,311 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:16:32,298 <INFO>: 客户端: ('192.168.1.101', 47880) 链接, 分派线程 Englite3TCP_19
+2023-06-20 20:16:32,426 <INFO>: Englite3TCP_19 addr=('192.168.1.101', 47880) username=whis 身份验证成功
+2023-06-20 20:16:32,427 <INFO>: Englite3TCP_19 addr=('192.168.1.101', 47880) query database list.
+2023-06-20 20:16:32,431 <INFO>: 线程Englite3TCP_19socket已关闭. 且线程结束
+2023-06-20 20:16:33,830 <INFO>: 客户端: ('192.168.1.101', 47886) 链接, 分派线程 Englite3TCP_20
+2023-06-20 20:16:34,005 <INFO>: Englite3TCP_20 addr=('192.168.1.101', 47886) username=whis 身份验证成功
+2023-06-20 20:16:34,006 <INFO>: Englite3TCP_20 addr=('192.168.1.101', 47886) wanna download database, name = cat6.db
+2023-06-20 20:16:34,182 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:16:37,600 <INFO>: 客户端: ('192.168.1.101', 47902) 链接, 分派线程 Englite3TCP_21
+2023-06-20 20:16:37,892 <INFO>: Englite3TCP_21 addr=('192.168.1.101', 47902) username=whis 身份验证成功
+2023-06-20 20:16:37,894 <INFO>: Englite3TCP_21 addr=('192.168.1.101', 47902) wanna download database, name = cat6.db
+2023-06-20 20:16:38,122 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:16:41,668 <INFO>: 客户端: ('192.168.1.101', 51936) 链接, 分派线程 Englite3TCP_22
+2023-06-20 20:16:41,850 <INFO>: Englite3TCP_22 addr=('192.168.1.101', 51936) username=whis 身份验证成功
+2023-06-20 20:16:41,851 <INFO>: Englite3TCP_22 addr=('192.168.1.101', 51936) wanna download database, name = cat6.db
+2023-06-20 20:16:42,023 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:16:48,365 <INFO>: 客户端: ('192.168.1.101', 58836) 链接, 分派线程 Englite3TCP_23
+2023-06-20 20:16:48,521 <INFO>: Englite3TCP_23 addr=('192.168.1.101', 58836) username=whis 身份验证成功
+2023-06-20 20:16:48,523 <INFO>: Englite3TCP_23 addr=('192.168.1.101', 58836) wanna download database, name = cat6.db
+2023-06-20 20:16:48,660 <ERROR>: <class 'ConnectionResetError'> [WinError 10054] 远程主机强迫关闭了一个现有的连接。 | extra:线程名:Englite3TCP_23
+2023-06-20 20:16:51,598 <INFO>: 客户端: ('192.168.1.101', 58852) 链接, 分派线程 Englite3TCP_24
+2023-06-20 20:16:51,769 <INFO>: Englite3TCP_24 addr=('192.168.1.101', 58852) username=whis 身份验证成功
+2023-06-20 20:16:51,770 <INFO>: Englite3TCP_24 addr=('192.168.1.101', 58852) wanna download database, name = cat6.db
+2023-06-20 20:16:51,908 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:16:55,627 <INFO>: 客户端: ('192.168.1.101', 58864) 链接, 分派线程 Englite3TCP_25
+2023-06-20 20:16:55,768 <INFO>: Englite3TCP_25 addr=('192.168.1.101', 58864) username=whis 身份验证成功
+2023-06-20 20:16:55,769 <INFO>: Englite3TCP_25 addr=('192.168.1.101', 58864) wanna download database, name = cat6.db
+2023-06-20 20:16:55,926 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:17:01,054 <INFO>: 客户端: ('192.168.1.101', 41432) 链接, 分派线程 Englite3TCP_26
+2023-06-20 20:17:01,214 <INFO>: Englite3TCP_26 addr=('192.168.1.101', 41432) username=whis 身份验证成功
+2023-06-20 20:17:01,215 <INFO>: Englite3TCP_26 addr=('192.168.1.101', 41432) wanna download database, name = cat6.db
+2023-06-20 20:17:01,372 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:17:48,117 <INFO>: 客户端: ('192.168.1.101', 41240) 链接, 分派线程 Englite3TCP_27
+2023-06-20 20:17:48,286 <INFO>: Englite3TCP_27 addr=('192.168.1.101', 41240) username=whis 身份验证成功
+2023-06-20 20:17:48,289 <INFO>: Englite3TCP_27 addr=('192.168.1.101', 41240) query database list.
+2023-06-20 20:17:48,293 <INFO>: 线程Englite3TCP_27socket已关闭. 且线程结束
+2023-06-20 20:17:51,190 <INFO>: 客户端: ('192.168.1.101', 41252) 链接, 分派线程 Englite3TCP_28
+2023-06-20 20:17:51,311 <INFO>: Englite3TCP_28 addr=('192.168.1.101', 41252) username=whis 身份验证成功
+2023-06-20 20:17:51,315 <INFO>: Englite3TCP_28 addr=('192.168.1.101', 41252) wanna download database, name = cat6.db
+2023-06-20 20:17:51,467 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:18:34,248 <INFO>: 客户端: ('192.168.1.101', 36146) 链接, 分派线程 Englite3TCP_29
+2023-06-20 20:18:34,384 <INFO>: Englite3TCP_29 addr=('192.168.1.101', 36146) username=whis 身份验证成功
+2023-06-20 20:18:34,385 <INFO>: Englite3TCP_29 addr=('192.168.1.101', 36146) query database list.
+2023-06-20 20:18:34,387 <INFO>: 线程Englite3TCP_29socket已关闭. 且线程结束
+2023-06-20 20:18:38,457 <INFO>: 客户端: ('192.168.1.101', 33244) 链接, 分派线程 Englite3TCP_30
+2023-06-20 20:18:38,546 <INFO>: Englite3TCP_30 addr=('192.168.1.101', 33244) username=whis 身份验证成功
+2023-06-20 20:18:38,547 <INFO>: Englite3TCP_30 addr=('192.168.1.101', 33244) wanna download database, name = cat6.db
+2023-06-20 20:18:38,771 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:25:09,115 <INFO>: 客户端: ('192.168.1.101', 53906) 链接, 分派线程 Englite3TCP_31
+2023-06-20 20:25:09,245 <INFO>: Englite3TCP_31 addr=('192.168.1.101', 53906) username=whis 身份验证成功
+2023-06-20 20:25:09,246 <INFO>: Englite3TCP_31 addr=('192.168.1.101', 53906) query database list.
+2023-06-20 20:25:09,250 <INFO>: 线程Englite3TCP_31socket已关闭. 且线程结束
+2023-06-20 20:25:11,103 <INFO>: 客户端: ('192.168.1.101', 53912) 链接, 分派线程 Englite3TCP_32
+2023-06-20 20:25:11,220 <INFO>: Englite3TCP_32 addr=('192.168.1.101', 53912) username=whis 身份验证成功
+2023-06-20 20:25:11,221 <INFO>: Englite3TCP_32 addr=('192.168.1.101', 53912) wanna download database, name = cat6.db
+2023-06-20 20:25:11,411 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:25:15,690 <INFO>: 客户端: ('192.168.1.101', 53920) 链接, 分派线程 Englite3TCP_33
+2023-06-20 20:25:15,922 <INFO>: Englite3TCP_33 addr=('192.168.1.101', 53920) username=whis 身份验证成功
+2023-06-20 20:25:15,924 <INFO>: Englite3TCP_33 addr=('192.168.1.101', 53920) wanna download database, name = cat6.db
+2023-06-20 20:25:16,104 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:26:56,945 <INFO>: 客户端: ('192.168.1.101', 41744) 链接, 分派线程 Englite3TCP_34
+2023-06-20 20:26:57,105 <INFO>: Englite3TCP_34 addr=('192.168.1.101', 41744) username=whis 身份验证成功
+2023-06-20 20:26:57,106 <INFO>: Englite3TCP_34 addr=('192.168.1.101', 41744) query database list.
+2023-06-20 20:26:57,111 <INFO>: 线程Englite3TCP_34socket已关闭. 且线程结束
+2023-06-20 20:26:58,409 <INFO>: 客户端: ('192.168.1.101', 59200) 链接, 分派线程 Englite3TCP_35
+2023-06-20 20:26:58,550 <INFO>: Englite3TCP_35 addr=('192.168.1.101', 59200) username=whis 身份验证成功
+2023-06-20 20:26:58,550 <INFO>: Englite3TCP_35 addr=('192.168.1.101', 59200) wanna download database, name = cat6.db
+2023-06-20 20:26:58,735 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:27:25,250 <INFO>: 客户端: ('192.168.1.101', 40238) 链接, 分派线程 Englite3TCP_36
+2023-06-20 20:27:25,349 <INFO>: Englite3TCP_36 addr=('192.168.1.101', 40238) username=whis 身份验证成功
+2023-06-20 20:27:25,350 <INFO>: Englite3TCP_36 addr=('192.168.1.101', 40238) query database list.
+2023-06-20 20:27:25,355 <INFO>: 线程Englite3TCP_36socket已关闭. 且线程结束
+2023-06-20 20:27:28,381 <INFO>: 客户端: ('192.168.1.101', 50516) 链接, 分派线程 Englite3TCP_37
+2023-06-20 20:27:28,554 <INFO>: Englite3TCP_37 addr=('192.168.1.101', 50516) username=whis 身份验证成功
+2023-06-20 20:27:28,554 <INFO>: Englite3TCP_37 addr=('192.168.1.101', 50516) wanna download database, name = cat6.db
+2023-06-20 20:27:28,823 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:27:55,760 <INFO>: 客户端: ('192.168.1.101', 54686) 链接, 分派线程 Englite3TCP_38
+2023-06-20 20:27:55,938 <INFO>: Englite3TCP_38 addr=('192.168.1.101', 54686) username=whis 身份验证成功
+2023-06-20 20:27:55,938 <INFO>: Englite3TCP_38 addr=('192.168.1.101', 54686) query database list.
+2023-06-20 20:27:55,941 <INFO>: 线程Englite3TCP_38socket已关闭. 且线程结束
+2023-06-20 20:27:58,586 <INFO>: 客户端: ('192.168.1.101', 36964) 链接, 分派线程 Englite3TCP_39
+2023-06-20 20:27:58,782 <INFO>: Englite3TCP_39 addr=('192.168.1.101', 36964) username=whis 身份验证成功
+2023-06-20 20:27:58,783 <INFO>: Englite3TCP_39 addr=('192.168.1.101', 36964) wanna download database, name = cat6.db
+2023-06-20 20:27:58,951 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:28:24,127 <INFO>: 客户端: ('192.168.1.101', 36146) 链接, 分派线程 Englite3TCP_40
+2023-06-20 20:28:24,306 <INFO>: Englite3TCP_40 addr=('192.168.1.101', 36146) username=whis 身份验证成功
+2023-06-20 20:28:24,307 <INFO>: Englite3TCP_40 addr=('192.168.1.101', 36146) query database list.
+2023-06-20 20:28:24,308 <INFO>: 线程Englite3TCP_40socket已关闭. 且线程结束
+2023-06-20 20:28:26,395 <INFO>: 客户端: ('192.168.1.101', 36154) 链接, 分派线程 Englite3TCP_41
+2023-06-20 20:28:26,574 <INFO>: Englite3TCP_41 addr=('192.168.1.101', 36154) username=whis 身份验证成功
+2023-06-20 20:28:26,575 <INFO>: Englite3TCP_41 addr=('192.168.1.101', 36154) wanna download database, name = cat6.db
+2023-06-20 20:28:26,742 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:31:10,169 <INFO>: 客户端: ('192.168.1.101', 38684) 链接, 分派线程 Englite3TCP_42
+2023-06-20 20:31:10,370 <INFO>: Englite3TCP_42 addr=('192.168.1.101', 38684) username=whis 身份验证成功
+2023-06-20 20:31:10,371 <INFO>: Englite3TCP_42 addr=('192.168.1.101', 38684) query database list.
+2023-06-20 20:31:10,372 <INFO>: 线程Englite3TCP_42socket已关闭. 且线程结束
+2023-06-20 20:31:12,767 <INFO>: 客户端: ('192.168.1.101', 38694) 链接, 分派线程 Englite3TCP_43
+2023-06-20 20:31:12,888 <INFO>: Englite3TCP_43 addr=('192.168.1.101', 38694) username=whis 身份验证成功
+2023-06-20 20:31:12,889 <INFO>: Englite3TCP_43 addr=('192.168.1.101', 38694) wanna download database, name = cat6.db
+2023-06-20 20:31:13,065 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:32:14,027 <INFO>: 客户端: ('192.168.1.101', 33084) 链接, 分派线程 Englite3TCP_44
+2023-06-20 20:32:14,204 <INFO>: Englite3TCP_44 addr=('192.168.1.101', 33084) username=whis 身份验证成功
+2023-06-20 20:32:14,204 <INFO>: Englite3TCP_44 addr=('192.168.1.101', 33084) query database list.
+2023-06-20 20:32:14,206 <INFO>: 线程Englite3TCP_44socket已关闭. 且线程结束
+2023-06-20 20:32:17,608 <INFO>: 客户端: ('192.168.1.101', 33088) 链接, 分派线程 Englite3TCP_45
+2023-06-20 20:32:17,708 <INFO>: Englite3TCP_45 addr=('192.168.1.101', 33088) username=whis 身份验证成功
+2023-06-20 20:32:17,709 <INFO>: Englite3TCP_45 addr=('192.168.1.101', 33088) wanna download database, name = cat6.db
+2023-06-20 20:32:17,897 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:32:21,795 <INFO>: 客户端: ('192.168.1.101', 58878) 链接, 分派线程 Englite3TCP_46
+2023-06-20 20:32:21,898 <INFO>: Englite3TCP_46 addr=('192.168.1.101', 58878) username=whis 身份验证成功
+2023-06-20 20:32:21,901 <INFO>: Englite3TCP_46 addr=('192.168.1.101', 58878) wanna download database, name = cat6.db
+2023-06-20 20:32:22,037 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:34:49,031 <INFO>: 客户端: ('192.168.1.101', 60786) 链接, 分派线程 Englite3TCP_47
+2023-06-20 20:34:49,194 <INFO>: Englite3TCP_47 addr=('192.168.1.101', 60786) username=whis 身份验证成功
+2023-06-20 20:34:49,194 <INFO>: Englite3TCP_47 addr=('192.168.1.101', 60786) query database list.
+2023-06-20 20:34:49,197 <INFO>: 线程Englite3TCP_47socket已关闭. 且线程结束
+2023-06-20 20:34:51,095 <INFO>: 客户端: ('192.168.1.101', 60796) 链接, 分派线程 Englite3TCP_48
+2023-06-20 20:34:51,202 <INFO>: Englite3TCP_48 addr=('192.168.1.101', 60796) username=whis 身份验证成功
+2023-06-20 20:34:51,202 <INFO>: Englite3TCP_48 addr=('192.168.1.101', 60796) wanna download database, name = cat6.db
+2023-06-20 20:34:51,359 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:35:15,361 <INFO>: 客户端: ('192.168.1.101', 52232) 链接, 分派线程 Englite3TCP_49
+2023-06-20 20:35:15,520 <INFO>: Englite3TCP_49 addr=('192.168.1.101', 52232) username=whis 身份验证成功
+2023-06-20 20:35:15,521 <INFO>: Englite3TCP_49 addr=('192.168.1.101', 52232) query database list.
+2023-06-20 20:35:15,526 <INFO>: 线程Englite3TCP_49socket已关闭. 且线程结束
+2023-06-20 20:35:18,902 <INFO>: 客户端: ('192.168.1.101', 50462) 链接, 分派线程 Englite3TCP_50
+2023-06-20 20:35:19,067 <INFO>: Englite3TCP_50 addr=('192.168.1.101', 50462) username=whis 身份验证成功
+2023-06-20 20:35:19,068 <INFO>: Englite3TCP_50 addr=('192.168.1.101', 50462) wanna download database, name = cat6.db
+2023-06-20 20:35:19,228 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:36:05,260 <INFO>: 客户端: ('192.168.1.101', 43794) 链接, 分派线程 Englite3TCP_51
+2023-06-20 20:36:05,355 <INFO>: Englite3TCP_51 addr=('192.168.1.101', 43794) username=whis 身份验证成功
+2023-06-20 20:36:05,356 <INFO>: Englite3TCP_51 addr=('192.168.1.101', 43794) query database list.
+2023-06-20 20:36:05,361 <INFO>: 线程Englite3TCP_51socket已关闭. 且线程结束
+2023-06-20 20:36:07,548 <INFO>: 客户端: ('192.168.1.101', 43810) 链接, 分派线程 Englite3TCP_52
+2023-06-20 20:36:07,675 <INFO>: Englite3TCP_52 addr=('192.168.1.101', 43810) username=whis 身份验证成功
+2023-06-20 20:36:07,676 <INFO>: Englite3TCP_52 addr=('192.168.1.101', 43810) wanna download database, name = cat6.db
+2023-06-20 20:36:07,932 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:36:55,226 <INFO>: 客户端: ('192.168.1.101', 45428) 链接, 分派线程 Englite3TCP_53
+2023-06-20 20:36:55,378 <INFO>: Englite3TCP_53 addr=('192.168.1.101', 45428) username=whis 身份验证成功
+2023-06-20 20:36:55,379 <INFO>: Englite3TCP_53 addr=('192.168.1.101', 45428) query database list.
+2023-06-20 20:36:55,383 <INFO>: 线程Englite3TCP_53socket已关闭. 且线程结束
+2023-06-20 20:36:56,840 <INFO>: 客户端: ('192.168.1.101', 45440) 链接, 分派线程 Englite3TCP_54
+2023-06-20 20:36:57,011 <INFO>: Englite3TCP_54 addr=('192.168.1.101', 45440) username=whis 身份验证成功
+2023-06-20 20:36:57,012 <INFO>: Englite3TCP_54 addr=('192.168.1.101', 45440) wanna download database, name = cat6.db
+2023-06-20 20:36:57,211 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:38:24,084 <INFO>: 客户端: ('192.168.1.101', 33966) 链接, 分派线程 Englite3TCP_55
+2023-06-20 20:38:24,260 <INFO>: Englite3TCP_55 addr=('192.168.1.101', 33966) username=whis 身份验证成功
+2023-06-20 20:38:24,261 <INFO>: Englite3TCP_55 addr=('192.168.1.101', 33966) query database list.
+2023-06-20 20:38:24,265 <INFO>: 线程Englite3TCP_55socket已关闭. 且线程结束
+2023-06-20 20:38:26,920 <INFO>: 客户端: ('192.168.1.101', 33968) 链接, 分派线程 Englite3TCP_56
+2023-06-20 20:38:27,099 <INFO>: Englite3TCP_56 addr=('192.168.1.101', 33968) username=whis 身份验证成功
+2023-06-20 20:38:27,099 <INFO>: Englite3TCP_56 addr=('192.168.1.101', 33968) wanna download database, name = cat6.db
+2023-06-20 20:38:27,429 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:39:32,004 <INFO>: 客户端: ('192.168.1.101', 53652) 链接, 分派线程 Englite3TCP_57
+2023-06-20 20:39:32,183 <INFO>: Englite3TCP_57 addr=('192.168.1.101', 53652) username=whis 身份验证成功
+2023-06-20 20:39:32,183 <INFO>: Englite3TCP_57 addr=('192.168.1.101', 53652) query database list.
+2023-06-20 20:39:32,184 <INFO>: 线程Englite3TCP_57socket已关闭. 且线程结束
+2023-06-20 20:39:33,701 <INFO>: 客户端: ('192.168.1.101', 53654) 链接, 分派线程 Englite3TCP_58
+2023-06-20 20:39:33,863 <INFO>: Englite3TCP_58 addr=('192.168.1.101', 53654) username=whis 身份验证成功
+2023-06-20 20:39:33,864 <INFO>: Englite3TCP_58 addr=('192.168.1.101', 53654) wanna download database, name = cat6.db
+2023-06-20 20:39:34,003 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:39:38,724 <INFO>: 客户端: ('192.168.1.101', 45644) 链接, 分派线程 Englite3TCP_59
+2023-06-20 20:39:38,866 <INFO>: Englite3TCP_59 addr=('192.168.1.101', 45644) username=whis 身份验证成功
+2023-06-20 20:39:38,866 <INFO>: Englite3TCP_59 addr=('192.168.1.101', 45644) wanna download database, name = cat6.db
+2023-06-20 20:39:39,107 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:40:59,047 <INFO>: 客户端: ('192.168.1.101', 58526) 链接, 分派线程 Englite3TCP_60
+2023-06-20 20:40:59,217 <INFO>: Englite3TCP_60 addr=('192.168.1.101', 58526) username=whis 身份验证成功
+2023-06-20 20:40:59,218 <INFO>: Englite3TCP_60 addr=('192.168.1.101', 58526) query database list.
+2023-06-20 20:40:59,219 <INFO>: 线程Englite3TCP_60socket已关闭. 且线程结束
+2023-06-20 20:41:01,631 <INFO>: 客户端: ('192.168.1.101', 58536) 链接, 分派线程 Englite3TCP_61
+2023-06-20 20:41:01,798 <INFO>: Englite3TCP_61 addr=('192.168.1.101', 58536) username=whis 身份验证成功
+2023-06-20 20:41:01,799 <INFO>: Englite3TCP_61 addr=('192.168.1.101', 58536) wanna download database, name = cat6.db
+2023-06-20 20:41:02,049 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:42:58,354 <INFO>: 客户端: ('192.168.1.101', 48630) 链接, 分派线程 Englite3TCP_62
+2023-06-20 20:42:58,530 <INFO>: Englite3TCP_62 addr=('192.168.1.101', 48630) username=whis 身份验证成功
+2023-06-20 20:42:58,531 <INFO>: Englite3TCP_62 addr=('192.168.1.101', 48630) query database list.
+2023-06-20 20:42:58,533 <INFO>: 线程Englite3TCP_62socket已关闭. 且线程结束
+2023-06-20 20:43:00,195 <INFO>: 客户端: ('192.168.1.101', 48634) 链接, 分派线程 Englite3TCP_63
+2023-06-20 20:43:00,364 <INFO>: Englite3TCP_63 addr=('192.168.1.101', 48634) username=whis 身份验证成功
+2023-06-20 20:43:00,365 <INFO>: Englite3TCP_63 addr=('192.168.1.101', 48634) wanna download database, name = cat6.db
+2023-06-20 20:43:00,501 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:43:03,679 <INFO>: 客户端: ('192.168.1.101', 48648) 链接, 分派线程 Englite3TCP_64
+2023-06-20 20:43:03,791 <INFO>: Englite3TCP_64 addr=('192.168.1.101', 48648) username=whis 身份验证成功
+2023-06-20 20:43:03,793 <INFO>: Englite3TCP_64 addr=('192.168.1.101', 48648) wanna download database, name = cat6.db
+2023-06-20 20:43:03,926 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:43:07,775 <INFO>: 客户端: ('192.168.1.101', 48652) 链接, 分派线程 Englite3TCP_65
+2023-06-20 20:43:07,939 <INFO>: Englite3TCP_65 addr=('192.168.1.101', 48652) username=whis 身份验证成功
+2023-06-20 20:43:07,940 <INFO>: Englite3TCP_65 addr=('192.168.1.101', 48652) wanna download database, name = cat6.db
+2023-06-20 20:43:08,104 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:43:12,133 <INFO>: 客户端: ('192.168.1.101', 56990) 链接, 分派线程 Englite3TCP_66
+2023-06-20 20:43:12,312 <INFO>: Englite3TCP_66 addr=('192.168.1.101', 56990) username=whis 身份验证成功
+2023-06-20 20:43:12,313 <INFO>: Englite3TCP_66 addr=('192.168.1.101', 56990) wanna download database, name = cat6.db
+2023-06-20 20:43:12,486 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:43:15,913 <INFO>: 客户端: ('192.168.1.101', 56994) 链接, 分派线程 Englite3TCP_67
+2023-06-20 20:43:16,088 <INFO>: Englite3TCP_67 addr=('192.168.1.101', 56994) username=whis 身份验证成功
+2023-06-20 20:43:16,089 <INFO>: Englite3TCP_67 addr=('192.168.1.101', 56994) wanna download database, name = 2023红宝书中英+有道.db
+2023-06-20 20:43:16,718 <INFO>: database 2023红宝书中英+有道.db 传输完成.
+2023-06-20 20:43:25,945 <INFO>: 客户端: ('192.168.1.101', 41266) 链接, 分派线程 Englite3TCP_68
+2023-06-20 20:43:26,124 <INFO>: Englite3TCP_68 addr=('192.168.1.101', 41266) username=whis 身份验证成功
+2023-06-20 20:43:26,125 <INFO>: Englite3TCP_68 addr=('192.168.1.101', 41266) wanna download database, name = civi.db
+2023-06-20 20:43:26,202 <INFO>: database civi.db 传输完成.
+2023-06-20 20:43:27,950 <INFO>: 客户端: ('192.168.1.101', 41282) 链接, 分派线程 Englite3TCP_69
+2023-06-20 20:43:28,119 <INFO>: Englite3TCP_69 addr=('192.168.1.101', 41282) username=whis 身份验证成功
+2023-06-20 20:43:28,120 <INFO>: Englite3TCP_69 addr=('192.168.1.101', 41282) wanna download database, name = HollowKnightSilkNEVER.db
+2023-06-20 20:43:28,672 <INFO>: database HollowKnightSilkNEVER.db 传输完成.
+2023-06-20 20:43:36,853 <INFO>: 客户端: ('192.168.1.101', 56498) 链接, 分派线程 Englite3TCP_70
+2023-06-20 20:43:37,021 <INFO>: Englite3TCP_70 addr=('192.168.1.101', 56498) username=whis 身份验证成功
+2023-06-20 20:43:37,021 <INFO>: Englite3TCP_70 addr=('192.168.1.101', 56498) wanna download database, name = undertale.db
+2023-06-20 20:43:37,033 <INFO>: database undertale.db 传输完成.
+2023-06-20 20:54:25,688 <INFO>: 客户端: ('192.168.1.102', 44012) 链接, 分派线程 Englite3TCP_71
+2023-06-20 20:54:25,863 <INFO>: Englite3TCP_71 addr=('192.168.1.102', 44012) username=whis 身份验证成功
+2023-06-20 20:54:25,865 <INFO>: Englite3TCP_71 addr=('192.168.1.102', 44012) query database list.
+2023-06-20 20:54:25,907 <INFO>: 线程Englite3TCP_71socket已关闭. 且线程结束
+2023-06-20 20:54:27,805 <INFO>: 客户端: ('192.168.1.102', 44024) 链接, 分派线程 Englite3TCP_72
+2023-06-20 20:54:27,987 <INFO>: Englite3TCP_72 addr=('192.168.1.102', 44024) username=whis 身份验证成功
+2023-06-20 20:54:27,988 <INFO>: Englite3TCP_72 addr=('192.168.1.102', 44024) wanna download database, name = cat6.db
+2023-06-20 20:54:28,083 <INFO>: database cat6.db 传输完成.
+2023-06-20 20:54:41,519 <INFO>: 客户端: ('192.168.1.102', 57248) 链接, 分派线程 Englite3TCP_73
+2023-06-20 20:54:41,685 <INFO>: Englite3TCP_73 addr=('192.168.1.102', 57248) username=whis 身份验证成功
+2023-06-20 20:54:41,686 <INFO>: Englite3TCP_73 addr=('192.168.1.102', 57248) query database list.
+2023-06-20 20:54:41,690 <INFO>: 线程Englite3TCP_73socket已关闭. 且线程结束
+2023-06-20 20:54:43,724 <INFO>: 客户端: ('192.168.1.102', 57260) 链接, 分派线程 Englite3TCP_74
+2023-06-20 20:54:43,887 <INFO>: Englite3TCP_74 addr=('192.168.1.102', 57260) username=whis 身份验证成功
+2023-06-20 20:54:43,888 <INFO>: Englite3TCP_74 addr=('192.168.1.102', 57260) wanna download database, name = 2023红宝书中英+有道.db
+2023-06-20 20:54:44,411 <INFO>: database 2023红宝书中英+有道.db 传输完成.

@@ -211,4 +211,19 @@ public class Functions {
 
     }
 
+    public static void deleteOneDatabase(Context context, String dbname){
+        String dbpath = Config.DatabaseDirPath + Config.Dbprefix + dbname;
+        File file = new File(dbpath);
+        if (file.exists() && file.isFile()) {
+            if (file.delete()) {
+                Toast.makeText(context, "删除成功", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "删除失败", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(context, "删除失败，可能未找到数据库", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
 }
